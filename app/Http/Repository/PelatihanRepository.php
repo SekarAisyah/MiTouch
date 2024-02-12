@@ -45,6 +45,8 @@ class pelatihanRepository
             'MANFAAT_BAGI_PERUSAHAAN' => $data['manfaat_perusahaan'],
             'TRAINING_ATMP_CODE' => $data['atmp_code'],
             'TRAINING_ATMP_DESC' => $data['atmp_desc'],
+            'CREATE_AT' => now(),
+            
             // 'CREATE_BY' => auth()->user()->id,
             // 'CREATE_NAME' => auth()->user()->username,
 
@@ -98,6 +100,7 @@ class pelatihanRepository
                 'MANFAAT_BAGI_PERUSAHAAN' => $data['manfaat_perusahaan'],
                 'TRAINING_ATMP_CODE' => $data['atmp_code'],
                 'TRAINING_ATMP_DESC' => $data['atmp_desc'],
+                'REVISI_BY' =>null
             ]);
     }
 
@@ -111,8 +114,8 @@ class pelatihanRepository
         $data = DB::table('pocket_moving_tbl_t_pelatihan')
             ->join('users', 'pocket_moving_tbl_t_pelatihan.NRP', '=', 'users.nrp')
             ->select('pocket_moving_tbl_t_pelatihan.*', 'users.name as username', 'users.departemen as departemen', 'users.perusahaan as perusahaan') // Sesuaikan alias dengan nama yang Anda inginkan
+            ->orderBy('pocket_moving_tbl_t_pelatihan.CREATE_AT', 'desc')
             ->get();
-
         return $data;
     }
 
@@ -126,7 +129,7 @@ class pelatihanRepository
                 'users.departemen as departemen',
                 'users.perusahaan as perusahaan'
             )
-            ->orderBy('pocket_moving_tbl_t_pelatihan.MULAI_TRAINING', 'desc');
+            ->orderBy('pocket_moving_tbl_t_pelatihan.BERANGKAT_TRAINING', 'desc');
     }
 
     public function getAllWithUsernameAndDateRange($start_date, $end_date)
@@ -135,7 +138,6 @@ class pelatihanRepository
             ->join('users', 'pocket_moving_tbl_t_pelatihan.NRP', '=', 'users.nrp')
             ->select('pocket_moving_tbl_t_pelatihan.*', 'users.name as username', 'users.departemen as departemen', 'users.perusahaan as perusahaan')
             ->when($start_date && $end_date, function ($query) use ($start_date, $end_date) {
-                // Ubah format input tanggal ke format yang diharapkan oleh database
                 $start_date = date('Y-m-d', strtotime($start_date));
                 $end_date = date('Y-m-d', strtotime($end_date));
 
@@ -146,7 +148,7 @@ class pelatihanRepository
         return $query;
     }
 
-    public function send($userId, $userRole, $sendName, $selectedPelatihanId)
+    public function send($userId, $userRole, $keterangan, $selectedPelatihanId)
     {
 
         $pelatihan = DB::table('pocket_moving_tbl_t_pelatihan')->where('PID', $selectedPelatihanId)->first();
@@ -170,7 +172,9 @@ class pelatihanRepository
                 ->update([
                     'APPRV_ATASAN' => 1,
                     'UPDATE_AT_ATASAN' => now(),
-                    'STATUS' => $newKodeStatus
+                    'STATUS' => $newKodeStatus,
+                    'KETERANGAN_ATASAN' => $keterangan,
+                    'REVISI_BY' => null
                 ]);
         } else if ($newKodeStatus == 4) {
             DB::table('pocket_moving_tbl_t_pelatihan')
@@ -178,7 +182,10 @@ class pelatihanRepository
                 ->update([
                     'APPRV_HR' => 1,
                     'UPDATE_AT_HR' => now(),
-                    'STATUS' => $newKodeStatus
+                    'STATUS' => $newKodeStatus,
+                    'KETERANGAN_HR' => $keterangan,
+                    'REVISI_BY' => null
+
                 ]);
         } else if ($newKodeStatus == 5) {
             DB::table('pocket_moving_tbl_t_pelatihan')
@@ -186,7 +193,9 @@ class pelatihanRepository
                 ->update([
                     'APPRV_HR_MNG' => 1,
                     'UPDATE_AT_HR_MNG' => now(),
-                    'STATUS' => $newKodeStatus
+                    'STATUS' => $newKodeStatus,
+                    'KETERANGAN_HR_MNG' => $keterangan,
+                    'REVISI_BY' => null
                 ]);
         } else if ($newKodeStatus == 6) {
             DB::table('pocket_moving_tbl_t_pelatihan')
@@ -195,6 +204,8 @@ class pelatihanRepository
                     'APPRV_DRC' => 1,
                     'UPDATE_AT_DRC' => now(),
                     'STATUS' => $newKodeStatus,
+                    'KETERANGAN_DRC' => $keterangan,
+                    'REVISI_BY' => null,
                     'IS_PLAN_ATMP' => 'Yes',
                     'TRAINING_DONE' => 'Yes',
                 ]);
@@ -203,34 +214,20 @@ class pelatihanRepository
         return "Status updated successfully";
     }
 
-    // public function revisi($revisiName,$userRole, $selectedPelatihanId, $pesanRevisi, $userId)
-    // {
-    //     DB::table('pocket_moving_tbl_t_pelatihan')
-    //         ->where('id', $selectedPelatihanId)
-    //         ->update([
-    //             'revisi_by' => $userId,
-    //             'revisi_name' => $revisiName,
-    //             'kode_status' => 9,
-    //             'revisi_desc' => $pesanRevisi
-    //         ]);
-
-    //     return 'Data Pelatihan berhasil di "Revisi"';
-    // }
-
     public function revisi($revisiName, $userRole, $selectedPelatihanId, $pesanRevisi, $userId)
     {
         $kodeStatus = 8; // Default value
 
-        // $ket_atasan = null;
+        $ket_atasan = null;
         $ket_hr = null;
         $ket_hr_mng = null;
         $ket_drc = null;
 
         //status approve
-        // $approve_atasan = null;
-        // $approve_hr = null;
-        // $approve_hr_mng = null;
-        // $approve_drc = null;
+        $approve_atasan = null;
+        $approve_hr = null;
+        $approve_hr_mng = null;
+        $approve_drc = null;
 
         // update at
         $upd_atasan = null;
@@ -238,47 +235,61 @@ class pelatihanRepository
         $upd_hr_mng = null;
         $upd_drc = null;
 
+        //status_revisi
+        $rev_atasan = null;
+        $rev_hr = null;
+        $rev_hr_mng = null;
+        $rev_drc = null;
+
         switch ($userRole) {
             case 2:
                 $kodeStatus = 8;
-                // $ket_atasan = $pesanRevisi;
-                // $approve_atasan = 0;
+                $rev_atasan = $userRole;
+                $ket_atasan = $pesanRevisi;
+                $approve_atasan = 0;
                 $upd_atasan = now();
                 break;
             case 3:
                 $kodeStatus = 9;
+                $rev_hr = $userRole;
                 $ket_hr =  $pesanRevisi;
-                // $approve_hr = 0;
+                $approve_hr = 0;
                 $upd_hr = now();
                 break;
             case 4:
                 $kodeStatus = 10;
+                $rev_hr_mng = $userRole;
                 $ket_hr_mng = $pesanRevisi;
-                // $approve_hr_mng = 0;
+                $approve_hr_mng = 0;
                 $upd_hr_mng = now();
                 break;
             case 5:
                 $kodeStatus = 11;
+                $rev_drc = $userRole;
                 $ket_drc = $pesanRevisi;
-                // $approve_drc = 0;
+                $approve_drc = 0;
                 $upd_drc = now();
                 break;
             default:
                 $kodeStatus = 8;
                 $newKodeStatus = $kodeStatus + 1;
                 if ($kodeStatus == 8) {
-                    // $ket_atasan = $pesanRevisi;
+                    $rev_atasan = $userRole;
+                    $ket_atasan = $pesanRevisi;
                     // $approve_atasan = 0;
                     $upd_atasan = now();
                 } else if ($kodeStatus == 9) {
+                    $rev_hr = $userRole;
                     $ket_hr =  $pesanRevisi;
                     // $approve_hr = 0;
                     $upd_hr = now();
                 } else if ($kodeStatus == 10) {
+                    $rev_hr_mng = $userRole;
                     $ket_hr_mng = $pesanRevisi;
                     // $approve_hr_mng = 0;
                     $upd_hr_mng = now();
                 } else if ($kodeStatus == 11) {
+                    $rev_drc = $userRole;
                     $ket_drc = $pesanRevisi;
                     // $approve_drc = 0;
                     $upd_drc = now();
@@ -294,25 +305,28 @@ class pelatihanRepository
             DB::table('pocket_moving_tbl_t_pelatihan')
                 ->where('PID', $selectedPelatihanId)
                 ->update([
-                    // 'APPRV_ATASAN' => $approve_atasan,
+                    'REVISI_BY' => $rev_atasan,
+                    'APPRV_ATASAN' => $approve_atasan,
                     'STATUS' => $kodeStatus,
                     'UPDATE_AT_ATASAN' => $upd_atasan,
-                    // 'KETERANGAN_ATASAN' => $ket_atasan
+                    'KETERANGAN_ATASAN' => $ket_atasan
                 ]);
         } else if ($kodeStatus == 9) {
             DB::table('pocket_moving_tbl_t_pelatihan')
                 ->where('PID', $selectedPelatihanId)
                 ->update([
-                    // 'APPRV_HR' => $approve_hr,
+                    'REVISI_BY' => $rev_hr,
+                    'APPRV_HR' => $approve_hr,
                     'KETERANGAN_HR' => $ket_hr,
                     'UPDATE_AT_HR' => $upd_hr,
                     'STATUS' => $kodeStatus
                 ]);
-        } else if ($newKodeStatus == 10) {
+        } else if ($kodeStatus == 10) {
             DB::table('pocket_moving_tbl_t_pelatihan')
                 ->where('PID', $selectedPelatihanId)
                 ->update([
-                    // 'APPRV_HR_MNG' => $approve_hr_mng,
+                    'REVISI_BY' => $rev_hr_mng,
+                    'APPRV_HR_MNG' => $approve_hr_mng,
                     'KETERANGAN_HR_MNG' => $ket_hr_mng,
                     'UPDATE_AT_HR_MNG' => $upd_hr_mng,
                     'STATUS' => $kodeStatus
@@ -321,7 +335,8 @@ class pelatihanRepository
             DB::table('pocket_moving_tbl_t_pelatihan')
                 ->where('PID', $selectedPelatihanId)
                 ->update([
-                    // 'APPRV_DRC' => $approve_drc,
+                    'REVISI_BY' => $rev_drc,
+                    'APPRV_DRC' => $approve_drc,
                     'KETERANGAN_DRC' => $ket_drc,
                     'UPDATE_AT_DRC' => $upd_drc,
                     'STATUS' => 11,
@@ -335,16 +350,16 @@ class pelatihanRepository
 
     public function reject($rejectName, $selectedPelatihanId, $pesanReject, $userId, $userRole)
     {
-
-
         switch ($userRole) {
             case 2:
                 DB::table('pocket_moving_tbl_t_pelatihan')
                     ->where('PID', $selectedPelatihanId)
                     ->update([
                         'APPRV_ATASAN' => 0,
+                        'REVISI_BY' => 0,
+                        'REJECT_BY' => 2,
                         'STATUS' => 7,
-                        // 'KETERANGAN_ATASAN' => $pesanReject,
+                        'KETERANGAN_ATASAN' => $pesanReject,
                     ]);
                 break;
             case 3:
@@ -352,6 +367,8 @@ class pelatihanRepository
                     ->where('PID', $selectedPelatihanId)
                     ->update([
                         'APPRV_HR' => 0,
+                        'REVISI_BY' => 0,
+                        'REJECT_BY' => 3,
                         'STATUS' => 7,
                         'KETERANGAN_HR' => $pesanReject,
                     ]);
@@ -361,6 +378,8 @@ class pelatihanRepository
                     ->where('PID', $selectedPelatihanId)
                     ->update([
                         'APPRV_HR_MNG' => 0,
+                        'REVISI_BY' => 0,
+                        'REJECT_BY' => 4,
                         'STATUS' => 7,
                         'KETERANGAN_HR_MNG' => $pesanReject,
                     ]);
@@ -370,6 +389,8 @@ class pelatihanRepository
                     ->where('PID', $selectedPelatihanId)
                     ->update([
                         'APPRV_DRC' => 0,
+                        'REVISI_BY' => 0,
+                        'REJECT_BY' => 5,
                         'STATUS' => 7,
                         'KETERANGAN_DRC' => $pesanReject,
                     ]);
@@ -379,15 +400,11 @@ class pelatihanRepository
                     ->where('PID', $selectedPelatihanId)
                     ->update([
                         'APPRV_ATASAN' => 0,
+                        'REVISI_BY' => 0,
                         'STATUS' => 7,
-                        // 'KETERANGAN_ATASAN' => $pesanReject,
                     ]);
                 break;
         }
-
-
-
-
         return 'Data Pelatihan Berhasil di "Reject"';
     }
 

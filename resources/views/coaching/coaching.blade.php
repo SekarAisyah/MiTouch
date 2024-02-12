@@ -34,12 +34,18 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="coaching-details">
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">IDENTITAS PESERTA</h6>
+                                            </div>
+                                            </div>
+                                            <hr>
                                             <div class="detail">
                                                 <label for="nrp">NRP :</label>
                                                 <span id="nrp"></span>
                                             </div>
                                             <div class="detail">
-                                                <label for="name">Nama Coaching:</label>
+                                                <label for="name">Nama:</label>
                                                 <span id="name"></span>
                                             </div>
                                             <div class="detail">
@@ -54,6 +60,16 @@
                                                 <label for="perusahaan">Perusahaan:</label>
                                                 <span id="perusahaan"></span>
                                             </div>
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">INFORMASI COACHING</h6>
+                                            </div>
+                                            </div>
+                                            <hr>
+                                             <div class="detail">
+                                                <label for="name-coaching">Nama Coaching:</label>
+                                                <span id="name-coaching"></span>
+                                            </div>
                                             <div class="detail">
                                                 <label for="waktu_coaching">Waktu Coaching :</label>
                                                 <span id="waktu_coaching"></span>
@@ -66,55 +82,60 @@
                                                 <label for="kom_nama">Nama Kompetensi:</label>
                                                 <span id="kom_nama"></span>
                                             </div>
+                                             <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">KETERANGAN</h6>
+                                            </div>
+                                            </div>
+                                            <hr>
+                                            <div class="detail">
+                                                <label for="upd_atasan">Update By Superintendent PD :</label>
+                                                <span id="upd_atasan"></span>
+                                            </div>
                                             <div class="detail">
                                                 <label for="aprv_atasan">Approve By Superintendent PD :</label>
                                                 <span id="aprv_atasan"></span>
                                             </div>
-                                            <div class="detail">
-                                                <label for="aprv_hr">Approve By Manager :</label>
-                                                <span id="aprv_hr"></span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="aprv_hr_mng">Approve By HR Manager :</label>
-                                                <span id="aprv_hr_mng"></span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="aprv_drc">Approve By Direksi :</label>
-                                                <span id="aprv_drc"></span>
-                                            </div>
-                                            <div class="detail">
+                                             <div class="detail">
                                                 <label for="ket_atasan">Keterangan By Superintendent PD :</label>
                                                 <span id="ket_atasan"></span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="ket_hr">Keterangan By Manager :</label>
-                                                <span id="ket_hr"></span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="ket_hr_mng">Keterangan By HR Manager :</label>
-                                                <span id="ket_hr_mng"></span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="ket_drc">Keterangan By Direksi :</label>
-                                                <span id="ket_drc"></span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="upd_atasan">Update By Superintendent PD :</label>
-                                                <span id="upd_atasan"></span>
                                             </div>
                                             <div class="detail">
                                                 <label for="upd_hr">Update By Manager :</label>
                                                 <span id="upd_hr"></span>
                                             </div>
                                             <div class="detail">
+                                                <label for="aprv_hr">Approve By Manager :</label>
+                                                <span id="aprv_hr"></span>
+                                            </div>
+                                             <div class="detail">
+                                                <label for="ket_hr">Keterangan By Manager :</label>
+                                                <span id="ket_hr"></span>
+                                            </div>
+                                            <div class="detail">
                                                 <label for="upd_hr_mng">Update By HR Manager :</label>
                                                 <span id="upd_hr_mng"></span>
+                                            </div>
+                                            <div class="detail">
+                                                <label for="aprv_hr_mng">Approve By HR Manager :</label>
+                                                <span id="aprv_hr_mng"></span>
+                                            </div>
+                                             <div class="detail">
+                                                <label for="ket_hr_mng">Keterangan By HR Manager :</label>
+                                                <span id="ket_hr_mng"></span>
                                             </div>
                                             <div class="detail">
                                                 <label for="upd_drc">Update By Direksi :</label>
                                                 <span id="upd_drc"></span>
                                             </div>
-
+                                            <div class="detail">
+                                                <label for="aprv_drc">Approve By Direksi :</label>
+                                                <span id="aprv_drc"></span>
+                                            </div>
+                                            <div class="detail">
+                                                <label for="ket_drc">Keterangan By Direksi :</label>
+                                                <span id="ket_drc"></span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -137,14 +158,13 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        {{-- <input type="hidden" name="_token" value="{{{ csrf_token() }}}" /> --}}
-                                        <input type="hidden" name="id" id="id" />
-                                        <input type="hidden" name="action_flag" id="action_flag" />
-                                        <input type="hidden" name="tgl_mulai" id="tgl_mulai" />
-                                        {{-- <input type="hidden" name="last_seq" id="last_seq" value="{{{$last_seq}}}" /> --}}
-
                                         <form class="row g-3 needs-validation" method="POST" action="/coaching/create">
                                             @csrf
+                                             <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku-add">IDENTITAS PESERTA</h6>
+                                            </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
                                                     <select class="form-control" id="nrp-dropdown" name="nrp-dropdown">
@@ -161,30 +181,41 @@
                                             <div class="col-md-6">
                                                 <div class="form-floating">
                                                     <input type="text" readonly class="form-control"
-                                                        id="name-coaching" name="name-coaching" placeholder="Name">
-                                                    <label for="message-text">Nama Coaching</label>
-
+                                                        id="name-add" name="name-add" placeholder="Name-add">
+                                                    <label for="message-text">Nama</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-floating">
                                                     <input type="text" disabled class="form-control" id="jabatan-add"
                                                         name="jabatan-add" placeholder="Jabatan">
                                                     <label for="message-text">Jabatan </label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-floating">
                                                     <input type="text" disabled class="form-control"
                                                         id="departemen-add" name="departemen-add" placeholder="Password">
                                                     <label for="message-text">Departemen </label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-floating">
                                                     <input type="text" disabled class="form-control"
                                                         id="perusahaan-add" name="perusahaan-add" placeholder="Password">
                                                     <label for="message-text">Perusahaan</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku-add">INFORMASI COACHING</h6>
+                                            </div>
+                                            </div>
+                                             <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control"
+                                                        id="name-coaching" name="name-coaching" placeholder="Name">
+                                                    <label for="message-text">Nama Coaching</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -229,6 +260,36 @@
                             </div>
                         </div>
                         {{-- End Modal Add --}}
+
+                        
+                         <!--begin::Modal SEND-->
+                        <div class="modal fade modal_send" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Approve Coaching</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="modal-body">
+                                        <form class="kt-form kt-form--label-right form_send" action="{{ route('send.coaching') }}"  method="POST" enctype="multipart/form-data" autocomplete="off">
+                                            @csrf
+                                            <div class="form-group">
+                                                <label for="message-text" class="form-control-label">KETERANGAN APPROVAL<span style="color:red">*</span></label>
+                                                <textarea class="form-control" id="send-link" name="send-link" rows="8"></textarea>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary" id="btn-yes-send">Kirim</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end::Modal SEND-->
+              
 
                         <!--begin::Modal Revisi-->
                         <div class="modal fade modal_revisi" id="revisiModal" tabindex="-1" role="dialog"
@@ -383,11 +444,12 @@
                                                             <li><a class="dropdown-item delete" href="#"
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa-solid fa-trash"></i>Delete</a></li>
-                                                            <li><a class="dropdown-item send-link" href="#"
+                                                            <li><a class="dropdown-item send" href="#"
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa-regular fa-paper-plane"></i> Send</a>
                                                             </li>
                                                             <li><a class="dropdown-item send-link" href="#"
+                                                                    data-bs-toggle="modal" data-bs-target="#sendModal"
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa-regular fa-square-check"></i> Approve</a>
                                                             </li>
@@ -404,31 +466,6 @@
                                                                     data-id="{{ $coaching->PID }}" href="#"> Export
                                                                     PDF</a></li>
                                                         </ul>
-                                                    @elseif (auth()->user()->id_role == 5)
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item view" href="#"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#viewcoachingModal"
-                                                                    data-id="{{ $coaching->PID }}"><i
-                                                                        class="fa fa-expand"></i>View</a></li>
-                                                            <li><a class="dropdown-item send-link" href="#"
-                                                                    data-id="{{ $coaching->PID }}"><i
-                                                                        class="fa-regular fa-paper-plane"></i> Send</a>
-                                                            </li>
-                                                            <li><a class="dropdown-item send-link" href="#"
-                                                                    data-id="{{ $coaching->PID }}"><i
-                                                                        class="fa-regular fa-square-check"></i> Approve</a>
-                                                            </li>
-                                                            <li><a class="dropdown-item revisi" href="#"
-                                                                    data-bs-toggle="modal" data-bs-target="#revisiModal"
-                                                                    data-id="{{ $coaching->PID }}"><i
-                                                                        class="fa-regular fa-message"></i>Revisi</a></li>
-                                                            <li><a class="dropdown-item reject" href="#"
-                                                                    data-bs-toggle="modal" data-bs-target="#rejectModal"
-                                                                    data-id="{{ $coaching->PID }}"><i
-                                                                        class="fa-regular fa-circle-xmark"></i>Reject</a>
-                                                            </li>
-                                                        </ul>
                                                     @elseif($coaching->status == 1 && auth()->user()->id_role == 1)
                                                         <ul class="dropdown-menu">
                                                             <li><a class="dropdown-item view" href="#"
@@ -444,12 +481,12 @@
                                                             <li><a class="dropdown-item delete" href="#"
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa-solid fa-trash"></i>Delete</a></li>
-                                                            <li><a class="dropdown-item send-link" href="#"
+                                                            <li><a class="dropdown-item send" href="#"
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa-regular fa-paper-plane"></i> Send</a>
                                                             </li>
                                                         </ul>
-                                                    @elseif($coaching->status == 9 && auth()->user()->id_role == 1)
+                                                    @elseif($coaching->status == 8 && auth()->user()->id_role == 1)
                                                         <ul class="dropdown-menu">
                                                             <li><a class="dropdown-item view" href="#"
                                                                     data-bs-toggle="modal"
@@ -465,7 +502,7 @@
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa-solid fa-trash"></i>Delete</a></li>
                                                         </ul>
-                                                    @elseif($coaching->status == 10 && auth()->user()->id_role == 2)
+                                                    @elseif($coaching->status == 9 && auth()->user()->id_role == 2)
                                                         <ul class="dropdown-menu">
                                                             <li><a class="dropdown-item view" href="#"
                                                                     data-bs-toggle="modal"
@@ -481,7 +518,7 @@
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa-solid fa-trash"></i>Delete</a></li>
                                                         </ul>
-                                                    @elseif($coaching->status == 11 && auth()->user()->id_role == 3)
+                                                    @elseif($coaching->status == 10 && auth()->user()->id_role == 3)
                                                         <ul class="dropdown-menu">
                                                             <li><a class="dropdown-item view" href="#"
                                                                     data-bs-toggle="modal"
@@ -497,39 +534,7 @@
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa-solid fa-trash"></i>Delete</a></li>
                                                         </ul>
-                                                    @elseif($coaching->status == 12 && auth()->user()->id_role == 4)
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item view" href="#"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#viewcoachingModal"
-                                                                    data-id="{{ $coaching->PID }}"><i
-                                                                        class="fa fa-expand"></i>View</a></li>
-                                                            <li><a class="dropdown-item edit" href="#"
-                                                                    data-bs-toggle="modal" data-bs-target="#coachingModal"
-                                                                    data-id="{{ $coaching->PID }}"><i
-                                                                        class="fa-regular fa-pen-to-square"></i>Edit</a>
-                                                            </li>
-                                                            <li><a class="dropdown-item delete" href="#"
-                                                                    data-id="{{ $coaching->PID }}"><i
-                                                                        class="fa-solid fa-trash"></i>Delete</a></li>
-                                                        </ul>
-                                                    @elseif($coaching->status == 13 && auth()->user()->id_role == 5)
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item view" href="#"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#viewcoachingModal"
-                                                                    data-id="{{ $coaching->PID }}"><i
-                                                                        class="fa fa-expand"></i>View</a></li>
-                                                            <li><a class="dropdown-item edit" href="#"
-                                                                    data-bs-toggle="modal" data-bs-target="#coachingModal"
-                                                                    data-id="{{ $coaching->PID }}"><i
-                                                                        class="fa-regular fa-pen-to-square"></i>Edit</a>
-                                                            </li>
-                                                            <li><a class="dropdown-item delete" href="#"
-                                                                    data-id="{{ $coaching->PID }}"><i
-                                                                        class="fa-solid fa-trash"></i>Delete</a></li>
-                                                        </ul>
-                                                    @elseif($coaching->status == 11 && auth()->user()->id_role == 3)
+                                                    @elseif($coaching->status == 11 && auth()->user()->id_role == 4)
                                                         <ul class="dropdown-menu">
                                                             <li><a class="dropdown-item view" href="#"
                                                                     data-bs-toggle="modal"
@@ -553,6 +558,7 @@
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa fa-expand"></i>View</a></li>
                                                             <li><a class="dropdown-item send-link" href="#"
+                                                                    data-bs-toggle="modal" data-bs-target="#sendModal"
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa-regular fa-square-check"></i> Approve</a>
                                                             </li>
@@ -574,6 +580,7 @@
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa fa-expand"></i>View</a></li>
                                                             <li><a class="dropdown-item send-link" href="#"
+                                                                    data-bs-toggle="modal" data-bs-target="#sendModal"
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa-regular fa-square-check"></i> Approve</a>
                                                             </li>
@@ -595,6 +602,7 @@
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa fa-expand"></i>View</a></li>
                                                             <li><a class="dropdown-item send-link" href="#"
+                                                                    data-bs-toggle="modal" data-bs-target="#sendModal"
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa-regular fa-square-check"></i> Approve</a>
                                                             </li>
@@ -616,27 +624,7 @@
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa fa-expand"></i>View</a></li>
                                                             <li><a class="dropdown-item send-link" href="#"
-                                                                    data-id="{{ $coaching->PID }}"><i
-                                                                        class="fa-regular fa-square-check"></i> Approve</a>
-                                                            </li>
-                                                            <li><a class="dropdown-item revisi" href="#"
-                                                                    data-bs-toggle="modal" data-bs-target="#revisiModal"
-                                                                    data-id="{{ $coaching->PID }}"><i
-                                                                        class="fa-regular fa-message"></i>Revisi</a></li>
-                                                            <li><a class="dropdown-item reject" href="#"
-                                                                    data-bs-toggle="modal" data-bs-target="#rejectModal"
-                                                                    data-id="{{ $coaching->PID }}"><i
-                                                                        class="fa-regular fa-circle-xmark"></i>Reject</a>
-                                                            </li>
-                                                        </ul>
-                                                    @elseif($coaching->status == 6 && auth()->user()->id_role == 6)
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item view" href="#"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#viewcoachingModal"
-                                                                    data-id="{{ $coaching->PID }}"><i
-                                                                        class="fa fa-expand"></i>View</a></li>
-                                                            <li><a class="dropdown-item send-link" href="#"
+                                                                    data-bs-toggle="modal" data-bs-target="#sendModal"
                                                                     data-id="{{ $coaching->PID }}"><i
                                                                         class="fa-regular fa-square-check"></i> Approve</a>
                                                             </li>
@@ -693,11 +681,6 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#datatable').DataTable();
-        });
-    </script>
 
     <script>
         $(document).ready(function() {
@@ -714,7 +697,7 @@
                     },
                     success: function(response) {
 
-                        $('#name-coaching').val(response.nama);
+                        $('#name-add').val(response.nama);
                         $('#jabatan-add').val(response.jabatan);
                         $('#departemen-add').val(response.departemen);
                         $('#perusahaan-add').val(response.perusahaan);
@@ -763,7 +746,7 @@
             });
         });
 
-        //VIEW sekar
+        //VIEW 
         var coachingId;
         $('.view').click(function() {
             coachingId = $(this).data('id');
@@ -773,60 +756,83 @@
                 type: 'GET',
                 url: '{{ url('/coaching/get') }}/' + coachingId,
                 success: function(response) {
+                    function hideIfNullOrEmpty(elementId, value) {
+                        var element = $('#viewCoachingModal').find('#' + elementId);
+                        var detailElement = element.closest('.detail');
+
+                        if (value === null || value.trim() === '') {
+                            detailElement.hide();
+                        } else {
+                            element.html(value);
+                            detailElement.show();
+                        }
+                    }
                     $('#viewCoachingModal').find('#nrp').text(response.NRP);
-                    $('#viewCoachingModal').find('#name').text(response.NAMA);
+                    $('#viewCoachingModal').find('#name').text(response.name);
                     $('#viewCoachingModal').find('#jabatan').text(response.jabatan);
                     $('#viewCoachingModal').find('#departemen').text(response.departemen);
                     $('#viewCoachingModal').find('#perusahaan').text(response.perusahaan);
                     $date = response.COACHING_DATE;
+                    $('#viewCoachingModal').find('#name-coaching').text(response.NAMA);
                     $('#viewCoachingModal').find('#waktu_coaching').text($date.split(' ', 1));
                     $('#viewCoachingModal').find('#kom_code').text(response.KOMPETENSI_CODE);
                     $('#viewCoachingModal').find('#kom_nama').text(response.KOMPETENSI_NAME);
-                    if (response.APPRV_ATASAN == 0) {
-                        $app1 = 'Revisi Pengajuan';
-                    } else if (response.APPRV_ATASAN == 1) {
-                        $app1 = 'Pengajuan di Terima';
+            
+                    if (response.REJECT_BY == 2) {
+                        $app1 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 2) {
+                        $app1 = '<span style="color: red;">Revisi Pengajuan</span>';
+                    }  else if (response.APPRV_ATASAN == 1) {
+                        $app1 = 'Pengajuan di Terima'
                     } else {
                         $app1 = null;
                     }
-                    $('#viewCoachingModal').find('#aprv_atasan').text($app1);
-                    if (response.APPRV_HR == 0) {
-                        $app2 = 'Revisi Pengajuan';
+                    
+                    hideIfNullOrEmpty('aprv_atasan', $app1);
+                    if (response.REJECT_BY == 3) {
+                        $app2 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 3) {
+                        $app2 = '<span style="color: red;">Revisi Pengajuan</span>';
                     } else if (response.APPRV_HR == 1) {
-                        $app2 = 'Pengajuan di Terima';
+                        $app2 = 'Pengajuan di Terima'
                     } else {
                         $app2 = null;
                     }
-                    $('#viewCoachingModal').find('#aprv_hr').text($app2);
-                    if (response.APPRV_HR_MNG == 0) {
-                        $app3 = 'Revisi Pengajuan';
+                    hideIfNullOrEmpty('aprv_hr', $app2);
+                    
+                    if (response.REJECT_BY == 4) {
+                        $app3 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 4) {
+                        $app3 = '<span style="color: red;">Revisi Pengajuan</span>';
                     } else if (response.APPRV_HR_MNG == 1) {
-                        $app3 = 'Pengajuan di Terima';
+                        $app3 = 'Pengajuan di Terima'
                     } else {
                         $app3 = null;
                     }
-                    $('#viewCoachingModal').find('#aprv_hr_mng').text($app3);
-                    if (response.APPRV_DRC == 0) {
-                        $app4 = 'Revisi Pengajuan';
+                     
+                    hideIfNullOrEmpty('aprv_hr_mng', $app3);
+                    if (response.REJECT_BY == 5) {
+                        $app4 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 5) {
+                        $app4 = '<span style="color: red;">Revisi Pengajuan</span>';
                     } else if (response.APPRV_DRC == 1) {
-                        $app4 = 'Pengajuan di Terima';
+                        $app4 = 'Pengajuan di Terima'
                     } else {
                         $app4 = null;
                     }
-                    $('#viewCoachingModal').find('#aprv_drc').text($app4);
-                    $('#viewCoachingModal').find('#ket_atasan').text(response.keterangan);
-                    $('#viewCoachingModal').find('#ket_hr').text(response.KETERANGAN_HR);
-                    $('#viewCoachingModal').find('#ket_hr_mng').text(response.KETERANGAN_HR_MNG);
-                    $('#viewCoachingModal').find('#ket_drc').text(response.KETERANGAN_DRC);
-                    $('#viewCoachingModal').find('#upd_atasan').text(response.UPDATE_AT_ATASAN);
-                    $('#viewCoachingModal').find('#upd_hr').text(response.UPDATE_AT_HR);
-                    $('#viewCoachingModal').find('#upd_hr_mng').text(response.UPDATE_AT_HR_MNG);
-                    $('#viewCoachingModal').find('#upd_drc').text(response.UPDATE_AT_DRC);
+                    hideIfNullOrEmpty('aprv_drc', $app4);
+                    hideIfNullOrEmpty('ket_atasan', response.keterangan);
+                    hideIfNullOrEmpty('ket_hr', response.KETERANGAN_HR);
+                    hideIfNullOrEmpty('ket_hr_mng', response.KETERANGAN_HR_MNG);
+                    hideIfNullOrEmpty('ket_drc', response.KETERANGAN_DRC);
+                    hideIfNullOrEmpty('upd_atasan', response.UPDATE_AT_ATASAN);
+                    hideIfNullOrEmpty('upd_hr', response.UPDATE_AT_HR);
+                    hideIfNullOrEmpty('upd_hr_mng', response.UPDATE_AT_HR_MNG);
+                    hideIfNullOrEmpty('upd_drc', response.UPDATE_AT_DRC);
 
                     $('#viewCoachingModal').modal('show');
                 },
                 error: function(error) {
-                    // Tampilkan pesan kesalahan jika diperlukan
                 }
             });
         });
@@ -843,11 +849,12 @@
                 success: function(response) {
 
                     $('#coachingModal').find('#nrp-dropdown').val(response.NRP);
-                    $('#coachingModal').find('#name-coaching').val(response.name);
+                    $('#coachingModal').find('#name-add').val(response.name);
                     $('#coachingModal').find('#jabatan-add').val(response.jabatan);
                     $('#coachingModal').find('#departemen-add').val(response.departemen);
                     $('#coachingModal').find('#perusahaan-add').val(response.perusahaan);
                     $date = response.COACHING_DATE;
+                    $('#coachingModal').find('#name-coaching').val(response.NAMA);
                     $('#coachingModal').find('#waktu_coaching').val($date.split(' ', 1));
                     $('#coachingModal').find('#komp-dropdown').val(response.KOMPETENSI_CODE);
                     $('#coachingModal').find('#kom_name').val(response.KOMPETENSI_NAME);
@@ -856,7 +863,6 @@
                     $('#coachingModal').modal('show');
                 },
                 error: function(error) {
-                    // Tampilkan pesan kesalahan jika diperlukan
                 }
             });
         });
@@ -919,71 +925,71 @@
             });
         });
 
+        //SEND FIRST
+        document.querySelectorAll('.send').forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            var coachingId = this.getAttribute('data-id');
 
-        function getStatusText(kodeStatus) {
-            if (kode_status === 1) {
-                return '<span class="badge rounded-pill text-bg-primary">Create</span>';
-            } else if (kode_status === 2) {
-                return '<span class="badge rounded-pill bg-warning text-dark">Revisi</span>';
-            } else if (kode_status === 3) {
-                return '<span class="badge rounded-pill text-bg-info text-start">Pending HRGA Manager</span>';
-            } else {
-                return 'Unknown Status';
-            }
-        }
-
-        // Function untuk mengganti status di tabel
-        function replaceStatusInTable() {
-            var rows = document.querySelectorAll('.dt_coaching tbody tr');
-            rows.forEach(function(row) {
-                var kodeStatus = row.querySelector('td:nth-child(8)')
-                    .textContent; // Ambil kode_status dari kolom ke-8
-                var statusText = getStatusText(kodeStatus); // Dapatkan teks status
-                row.querySelector('td:nth-child(8)').innerHTML =
-                    statusText; // Ganti isi kolom dengan teks status yang sesuai
+            Swal.fire({
+                title: 'Konfirmasi',
+                text: 'Yakin ingin mengirim data?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Kirim!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.post('{{ route('send.coaching') }}', {
+                        coaching_id: coachingId
+                    })
+                    .then(function (response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Sukses!',
+                            text: response.data.message
+                        }).then(() => {
+                            location.reload();
+                        });
+                    })
+                    .catch(function (error) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal!',
+                            text: 'Terjadi kesalahan saat mengirim data.'
+                        });
+                    });
+                }
             });
-        }
-
-        // Panggil fungsi untuk mengganti status setelah tabel dimuat
-        document.addEventListener('DOMContentLoaded', function() {
-            replaceStatusInTable();
+        });
         });
 
 
         //SEND
-        document.querySelectorAll('.send-link').forEach(function(link) {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                var coachingId = this.getAttribute('data-id');
-
-                Swal.fire({
-                    title: 'Konfirmasi',
-                    text: 'Yakin ingin mengirim data?',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'Ya, Kirim!',
-                    cancelButtonText: 'Batal'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        axios.post('{{ route('send.coaching') }}', {
-                                coaching_id: coachingId
-                            })
-                            .then(function(response) {
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Sukses!',
-                                    text: response.data.message
-                                }).then(() => {
-                                    location.reload();
-                                });
-                            })
-                            .catch(function(error) {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Gagal!',
-                                    text: 'Terjadi kesalahan saat mengirim data.'
-                                });
-                            });
+        $('.send-link').click(function() {
+            var coachingId = $(this).data('id'); 
+            $('#btn-yes-send').click(function() {
+            
+                var data = $('.form_send').serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route('send.coaching') }}?coaching_id=' + coachingId, 
+                    data: data,
+                    success: function(response) {
+                        Swal.fire({
+                        icon: 'success',
+                        title: 'Sukses!',
+                        text: response.message
+                        }).then(() => {
+                            location.reload()
+                        });
+                    },
+                    error: function(error) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal!',
+                            text: 'Terjadi kesalahan saat mengirim revisi.'
+                        });
                     }
                 });
             });
@@ -1112,13 +1118,9 @@
 
         //REVISI
         $('.revisi').click(function() {
-            var coachingId = $(this).data('id'); // Ambil ID coaching dari atribut data-id
-
+            var coachingId = $(this).data('id'); 
             $('#btn-yes-revisi').click(function() {
-                // Ambil data dari formulir, termasuk pesan revisi
                 var data = $('.form_revisi').serialize();
-
-                // Kirim data dengan permintaan AJAX
                 $.ajax({
                     type: 'POST',
                     url: '/coaching/revisi?coaching_id=' + coachingId,
@@ -1133,7 +1135,6 @@
                         });
                     },
                     error: function(error) {
-                        // Tampilkan SweetAlert kesalahan
                         Swal.fire({
                             icon: 'error',
                             title: 'Gagal!',

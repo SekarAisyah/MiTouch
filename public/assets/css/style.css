@@ -1416,7 +1416,7 @@ hr{
 
 .detail label {
   font-weight: bold;
-  flex-basis: 30%; 
+  flex-basis: 45%; 
 }
 
 .detail span {
@@ -1424,4 +1424,15 @@ hr{
   text-align: justify;
 }
 
+.labelku {
+  margin-top: 15px;
+  margin-bottom: 10px; 
+  padding: 0px;
+  font-weight: bold;
+}
 
+.labelku-add {
+  margin-bottom: 0px; 
+  padding: 0px;
+  font-weight: bold;
+}

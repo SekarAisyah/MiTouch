@@ -19,22 +19,30 @@
             <div class="card-body">
               <h5 class="card-title"><i class="fa-solid fa-square-poll-vertical"> </i>  Laporan Coaching </h5>
             
-              <!-- Modal View -->
-                <div class="modal fade modal-view" id="viewCoachingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- Modal View -->
+                <div class="modal fade modal-view" id="viewCoachingModal" tabindex="-1"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-6" id="btn-view">View coaching</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="coaching-details">
+                                    <div class="col-12">
+                                    <div class="form-floating">
+                                        <h6 class="labelku">IDENTITAS PESERTA</h6>
+                                    </div>
+                                    </div>
+                                    <hr>
                                     <div class="detail">
                                         <label for="nrp">NRP :</label>
                                         <span id="nrp"></span>
                                     </div>
                                     <div class="detail">
-                                        <label for="name">Nama Coaching:</label>
+                                        <label for="name">Nama:</label>
                                         <span id="name"></span>
                                     </div>
                                     <div class="detail">
@@ -49,6 +57,16 @@
                                         <label for="perusahaan">Perusahaan:</label>
                                         <span id="perusahaan"></span>
                                     </div>
+                                    <div class="col-12">
+                                    <div class="form-floating">
+                                        <h6 class="labelku">INFORMASI COACHING</h6>
+                                    </div>
+                                    </div>
+                                    <hr>
+                                        <div class="detail">
+                                        <label for="name-coaching">Nama Coaching:</label>
+                                        <span id="name-coaching"></span>
+                                    </div>
                                     <div class="detail">
                                         <label for="waktu_coaching">Waktu Coaching :</label>
                                         <span id="waktu_coaching"></span>
@@ -61,67 +79,74 @@
                                         <label for="kom_nama">Nama Kompetensi:</label>
                                         <span id="kom_nama"></span>
                                     </div>
+                                        <div class="col-12">
+                                    <div class="form-floating">
+                                        <h6 class="labelku">KETERANGAN</h6>
+                                    </div>
+                                    </div>
+                                    <hr>
+                                    <div class="detail">
+                                        <label for="upd_atasan">Update By Superintendent PD :</label>
+                                        <span id="upd_atasan"></span>
+                                    </div>
                                     <div class="detail">
                                         <label for="aprv_atasan">Approve By Superintendent PD :</label>
                                         <span id="aprv_atasan"></span>
+                                    </div>
+                                        <div class="detail">
+                                        <label for="ket_atasan">Keterangan By Superintendent PD :</label>
+                                        <span id="ket_atasan"></span>
+                                    </div>
+                                    <hr>
+                                    <div class="detail">
+                                        <label for="upd_hr">Update By Manager :</label>
+                                        <span id="upd_hr"></span>
                                     </div>
                                     <div class="detail">
                                         <label for="aprv_hr">Approve By Manager :</label>
                                         <span id="aprv_hr"></span>
                                     </div>
+                                        <div class="detail">
+                                        <label for="ket_hr">Keterangan By Manager :</label>
+                                        <span id="ket_hr"></span>
+                                    </div>
+                                    <hr>
+                                    <div class="detail">
+                                        <label for="upd_hr_mng">Update By HR Manager :</label>
+                                        <span id="upd_hr_mng"></span>
+                                    </div>
                                     <div class="detail">
                                         <label for="aprv_hr_mng">Approve By HR Manager :</label>
                                         <span id="aprv_hr_mng"></span>
+                                    </div>
+                                        <div class="detail">
+                                        <label for="ket_hr_mng">Keterangan By HR Manager :</label>
+                                        <span id="ket_hr_mng"></span>
+                                    </div>
+                                    <hr>
+                                    <div class="detail">
+                                        <label for="upd_drc">Update By Direksi :</label>
+                                        <span id="upd_drc"></span>
                                     </div>
                                     <div class="detail">
                                         <label for="aprv_drc">Approve By Direksi :</label>
                                         <span id="aprv_drc"></span>
                                     </div>
                                     <div class="detail">
-                                        <label for="ket_atasan">Keterangan By Superintendent PD :</label>
-                                        <span id="ket_atasan"></span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="ket_hr">Keterangan By Manager :</label>
-                                        <span id="ket_hr"></span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="ket_hr_mng">Keterangan By HR Manager :</label>
-                                        <span id="ket_hr_mng"></span>
-                                    </div>
-                                    <div class="detail">
                                         <label for="ket_drc">Keterangan By Direksi :</label>
                                         <span id="ket_drc"></span>
                                     </div>
-                                    <div class="detail">
-                                        <label for="upd_atasan">Update By Superintendent PD :</label>
-                                        <span id="upd_atasan"></span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="upd_hr">Update By Manager :</label>
-                                        <span id="upd_hr"></span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="upd_hr_mng">Update By HR Manager :</label>
-                                        <span id="upd_hr_mng"></span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="upd_drc">Update By Direksi :</label>
-                                        <span id="upd_drc"></span>
-                                    </div>
-
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- End Modal View -->
 
-            
-              
               <!-- Table with stripped rows -->
               <div class="container">
               <form id="filterForm">
@@ -150,19 +175,16 @@
                   <select id="statusFilter" class="form-select">
                       <option value="">All</option>
                       <option value="Create">Create</option>
-                      <option value="Pending Atasan">Pending Superintendent PD</option>
-                      <option value="Pending HR:PD">Pending Manager</option>
-                      <option value="Pending Manager">Pending Manager</option>
-                      <option value="Pending Direksi">Pending Direksi</option>
-                      <option value="6">Pending HRGA</option>
-                       <option value=6>Pending HRGA</option>
-                      <option value="Pending HRGA">Pending HRGA</option>
-                      <option value="Revisi Atasan">Revisi Superintendent PD</option>
-                      <option value="Revisi HR:PD">Revisi Manager</option>
+                      <option value="Need Approval Superintendent PD">Need Approval Superintendent PD</option>
+                      <option value="Need Approval Manager">Need Approval Manager</option>
+                      <option value="Need Approval HR Manager">Need Approval HR Manager</option>
+                      <option value="Need Approval Direksi">Need Approval Direksi</option>
+                      <option value="Revisi Superintendent PD">Revisi Superintendent PD</option>
                       <option value="Revisi Manager">Revisi Manager</option>
+                      <option value="Revisi HR Manager">Revisi HR Manager</option>
                       <option value="Revisi Direksi">Revisi Direksi</option>
-                      <option value="Revisi HRGA">Revisi HRGA</option>
-                      <option value="Aprroved">Approved</option>
+                      <option value="Done">Done</option>
+                      <option value="Reject">Reject</option>
                   </select>
                   </div>
               <table class="table dt_coaching" id="datatable">
@@ -176,7 +198,7 @@
                     <th scope="col">Kode Kompetensi</th>
                     {{-- <th scope="col">Informasi coaching</th> --}}
                     <th scope="col">Nama Kompetensi</th>
-                    <th scope="col">Waktu coaching</th>
+                    <th scope="col">Waktu Coaching</th>
                     <th scope="col">Status</th>
                     <th scope="col">Aksi</th>
                   </tr>
@@ -228,96 +250,60 @@
                 @if(auth()->user()->id_role == 0)
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item view" href="#" data-bs-toggle="modal" data-bs-target="#viewcoachingModal" data-id="{{ $coaching->PID }}"><i class="fa fa-expand"></i>View</a></li>
-                    {{-- <li><a class="dropdown-item edit" href="#" data-bs-toggle="modal" data-bs-target="#coachingModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-pen-to-square"></i>Edit</a></li>
-                    <li><a class="dropdown-item delete" href="#" data-id="{{ $coaching->PID }}"><i class="fa-solid fa-trash"></i>Delete</a></li>
-                    <li><a class="dropdown-item send-link" href="#" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-paper-plane"></i> Send</a></li>
-                    <li><a class="dropdown-item send-link" href="#" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-square-check"></i> Approve</a></li>
-                    <li><a class="dropdown-item revisi" href="#" data-bs-toggle="modal" data-bs-target="#revisiModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-message"></i>Revisi</a></li>
-                    <li><a class="dropdown-item reject" href="#" data-bs-toggle="modal" data-bs-target="#rejectModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-circle-xmark"></i>Reject</a></li>
-                    <li><a class="dropdown-item bi bi-file-pdf export" data-id="{{ $coaching->PID }}" href="#"> Export PDF</a></li>                --}}
                 </ul>
                 @elseif($coaching->status == 1 && auth()->user()->id_role == 1)
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item view" href="#" data-bs-toggle="modal" data-bs-target="#viewcoachingModal" data-id="{{ $coaching->PID }}"><i class="fa fa-expand"></i>View</a></li>
-                    {{-- <li><a class="dropdown-item edit" href="#" data-bs-toggle="modal" data-bs-target="#coachingModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-pen-to-square"></i>Edit</a></li>
-                    <li><a class="dropdown-item delete" href="#" data-id="{{ $coaching->PID }}"><i class="fa-solid fa-trash"></i>Delete</a></li>
+ 
                     <li><a class="dropdown-item send-link" href="#" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-paper-plane"></i> Send</a></li> --}}
                 </ul>
                 @elseif($coaching->status == 9 && auth()->user()->id_role == 1)
                  <ul class="dropdown-menu">
                     <li><a class="dropdown-item view" href="#" data-bs-toggle="modal" data-bs-target="#viewcoachingModal" data-id="{{ $coaching->PID }}"><i class="fa fa-expand"></i>View</a></li>
-                    {{-- <li><a class="dropdown-item edit" href="#" data-bs-toggle="modal" data-bs-target="#coachingModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-pen-to-square"></i>Edit</a></li>
-                    <li><a class="dropdown-item delete" href="#" data-id="{{ $coaching->PID }}"><i class="fa-solid fa-trash"></i>Delete</a></li> --}}
                 </ul>
                 @elseif($coaching->status == 10 && auth()->user()->id_role == 2)
                  <ul class="dropdown-menu">
                     <li><a class="dropdown-item view" href="#" data-bs-toggle="modal" data-bs-target="#viewcoachingModal" data-id="{{ $coaching->PID }}"><i class="fa fa-expand"></i>View</a></li>
-                    {{-- <li><a class="dropdown-item edit" href="#" data-bs-toggle="modal" data-bs-target="#coachingModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-pen-to-square"></i>Edit</a></li>
-                    <li><a class="dropdown-item delete" href="#" data-id="{{ $coaching->PID }}"><i class="fa-solid fa-trash"></i>Delete</a></li> --}}
                 </ul>
                 @elseif($coaching->status == 11 && auth()->user()->id_role == 3)
                  <ul class="dropdown-menu">
                     <li><a class="dropdown-item view" href="#" data-bs-toggle="modal" data-bs-target="#viewcoachingModal" data-id="{{ $coaching->PID }}"><i class="fa fa-expand"></i>View</a></li>
-                    {{-- <li><a class="dropdown-item edit" href="#" data-bs-toggle="modal" data-bs-target="#coachingModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-pen-to-square"></i>Edit</a></li>
-                    <li><a class="dropdown-item delete" href="#" data-id="{{ $coaching->PID }}"><i class="fa-solid fa-trash"></i>Delete</a></li> --}}
                 </ul>
                  @elseif($coaching->status == 12 && auth()->user()->id_role == 4)
                  <ul class="dropdown-menu">
                     <li><a class="dropdown-item view" href="#" data-bs-toggle="modal" data-bs-target="#viewcoachingModal" data-id="{{ $coaching->PID }}"><i class="fa fa-expand"></i>View</a></li>
-                    {{-- <li><a class="dropdown-item edit" href="#" data-bs-toggle="modal" data-bs-target="#coachingModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-pen-to-square"></i>Edit</a></li>
-                    <li><a class="dropdown-item delete" href="#" data-id="{{ $coaching->PID }}"><i class="fa-solid fa-trash"></i>Delete</a></li> --}}
                 </ul>
                  @elseif($coaching->status == 13 && auth()->user()->id_role == 5)
                  <ul class="dropdown-menu">
                     <li><a class="dropdown-item view" href="#" data-bs-toggle="modal" data-bs-target="#viewcoachingModal" data-id="{{ $coaching->PID }}"><i class="fa fa-expand"></i>View</a></li>
-                    {{-- <li><a class="dropdown-item edit" href="#" data-bs-toggle="modal" data-bs-target="#coachingModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-pen-to-square"></i>Edit</a></li>
-                    <li><a class="dropdown-item delete" href="#" data-id="{{ $coaching->PID }}"><i class="fa-solid fa-trash"></i>Delete</a></li> --}}
                 </ul>
                 @elseif($coaching->status == 11 && auth()->user()->id_role == 3)
                  <ul class="dropdown-menu">
                     <li><a class="dropdown-item view" href="#" data-bs-toggle="modal" data-bs-target="#viewcoachingModal" data-id="{{ $coaching->PID }}"><i class="fa fa-expand"></i>View</a></li>
-                    {{-- <li><a class="dropdown-item edit" href="#" data-bs-toggle="modal" data-bs-target="#coachingModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-pen-to-square"></i>Edit</a></li>
-                    <li><a class="dropdown-item delete" href="#" data-id="{{ $coaching->PID }}"><i class="fa-solid fa-trash"></i>Delete</a></li> --}}
                 </ul>
                 @elseif($coaching->status == 2 && auth()->user()->id_role == 2)
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item view" href="#" data-bs-toggle="modal" data-bs-target="#viewcoachingModal" data-id="{{ $coaching->PID }}"><i class="fa fa-expand"></i>View</a></li>
-                    {{-- <li><a class="dropdown-item send-link" href="#" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-square-check"></i> Approve</a></li>
-                    <li><a class="dropdown-item revisi" href="#" data-bs-toggle="modal" data-bs-target="#revisiModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-message"></i>Revisi</a></li>
-                    <li><a class="dropdown-item reject" href="#" data-bs-toggle="modal" data-bs-target="#rejectModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-circle-xmark"></i>Reject</a></li>                 --}}
                 </ul>
                 @elseif($coaching->status == 3 && auth()->user()->id_role == 3)
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item view" href="#" data-bs-toggle="modal" data-bs-target="#viewcoachingModal" data-id="{{ $coaching->PID }}"><i class="fa fa-expand"></i>View</a></li>
-                    {{-- <li><a class="dropdown-item send-link" href="#" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-square-check"></i> Approve</a></li>
-                    <li><a class="dropdown-item revisi" href="#" data-bs-toggle="modal" data-bs-target="#revisiModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-message"></i>Revisi</a></li>
-                    <li><a class="dropdown-item reject" href="#" data-bs-toggle="modal" data-bs-target="#rejectModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-circle-xmark"></i>Reject</a></li> --}}
                 </ul>
                 @elseif($coaching->status == 4 && auth()->user()->id_role == 4)
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item view" href="#" data-bs-toggle="modal" data-bs-target="#viewcoachingModal" data-id="{{ $coaching->PID }}"><i class="fa fa-expand"></i>View</a></li>
-                    {{-- <li><a class="dropdown-item send-link" href="#" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-square-check"></i> Approve</a></li>
-                    <li><a class="dropdown-item revisi" href="#" data-bs-toggle="modal" data-bs-target="#revisiModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-message"></i>Revisi</a></li>
-                    <li><a class="dropdown-item reject" href="#" data-bs-toggle="modal" data-bs-target="#rejectModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-circle-xmark"></i>Reject</a></li> --}}
                 </ul>
                 @elseif($coaching->status == 5 && auth()->user()->id_role == 5)
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item view" href="#" data-bs-toggle="modal" data-bs-target="#viewcoachingModal" data-id="{{ $coaching->PID }}"><i class="fa fa-expand"></i>View</a></li>
-                    {{-- <li><a class="dropdown-item send-link" href="#" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-square-check"></i> Approve</a></li>
-                    <li><a class="dropdown-item revisi" href="#" data-bs-toggle="modal" data-bs-target="#revisiModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-message"></i>Revisi</a></li>
-                    <li><a class="dropdown-item reject" href="#" data-bs-toggle="modal" data-bs-target="#rejectModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-circle-xmark"></i>Reject</a></li> --}}
                 </ul>
                 @elseif($coaching->status == 6 && auth()->user()->id_role == 6)
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item view" href="#" data-bs-toggle="modal" data-bs-target="#viewcoachingModal" data-id="{{ $coaching->PID }}"><i class="fa fa-expand"></i>View</a></li>
-                    {{-- <li><a class="dropdown-item send-link" href="#" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-square-check"></i> Approve</a></li>
-                    <li><a class="dropdown-item revisi" href="#" data-bs-toggle="modal" data-bs-target="#revisiModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-message"></i>Revisi</a></li>
-                   <li><a class="dropdown-item reject" href="#" data-bs-toggle="modal" data-bs-target="#rejectModal" data-id="{{ $coaching->PID }}"><i class="fa-regular fa-circle-xmark"></i>Reject</a></li> --}}
                 </ul>
                 @elseif($coaching->status == 7)
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item view" href="#" data-bs-toggle="modal" data-bs-target="#viewcoachingModal" data-id="{{ $coaching->PID }}"><i class="fa fa-expand"></i>View</a></li>
-                    {{-- <li><a class="dropdown-item" href="/coaching_pdf"><i class="fa-solid fa-square-poll-vertical"></i> Export PDF</a></li> --}}
                 </ul>
                 @else
                  <ul class="dropdown-menu">
@@ -378,47 +364,99 @@ var dataTable = $('#datatable').DataTable({
 
 $('#statusFilter').on('change', function () {
     var statusValue = $(this).val();
-    dataTable.column(9).search(statusValue).draw();
+    dataTable.column(7).search(statusValue).draw();
 });
+       
+        //VIEW
+        var coachingId;
+        $('.view').click(function() {
+            coachingId = $(this).data('id');
+            $('#viewCoachingModal').attr('data-mode', 'edit');
 
-//VIEW sekar
-var coachingId; 
-$('.view').click(function() {
-    coachingId = $(this).data('id');
-     $('#viewCoachingModal').attr('data-mode', 'edit');
-    
-    $.ajax({
-        type: 'GET',
-        url: '{{ url('/coaching/get') }}/' + coachingId,
-        success: function(response) {
-            $('#viewCoachingModal').find('#nrp').text(response.NRP);
-                    $('#viewCoachingModal').find('#name').text(response.NAMA);
+            $.ajax({
+                type: 'GET',
+                url: '{{ url('/coaching/get') }}/' + coachingId,
+                success: function(response) {
+                    function hideIfNullOrEmpty(elementId, value) {
+                        var element = $('#viewCoachingModal').find('#' + elementId);
+                        var detailElement = element.closest('.detail');
+
+                        if (value === null || value.trim() === '') {
+                            detailElement.hide();
+                        } else {
+                            element.html(value);
+                            detailElement.show();
+                        }
+                    }
+                    $('#viewCoachingModal').find('#nrp').text(response.NRP);
+                    $('#viewCoachingModal').find('#name').text(response.name);
                     $('#viewCoachingModal').find('#jabatan').text(response.jabatan);
                     $('#viewCoachingModal').find('#departemen').text(response.departemen);
                     $('#viewCoachingModal').find('#perusahaan').text(response.perusahaan);
-                    $('#viewCoachingModal').find('#waktu_coaching').text(response.COACHING_DATE);
+                    $date = response.COACHING_DATE;
+                    $('#viewCoachingModal').find('#name-coaching').text(response.NAMA);
+                    $('#viewCoachingModal').find('#waktu_coaching').text($date.split(' ', 1));
                     $('#viewCoachingModal').find('#kom_code').text(response.KOMPETENSI_CODE);
                     $('#viewCoachingModal').find('#kom_nama').text(response.KOMPETENSI_NAME);
-                    $('#viewCoachingModal').find('#aprv_atasan').text(response.APPRV_ATASAN);
-                    $('#viewCoachingModal').find('#aprv_hr').text(response.APPRV_HR);
-                    $('#viewCoachingModal').find('#aprv_hr_mng').text(response.APPRV_HR_MNG);
-                    $('#viewCoachingModal').find('#aprv_drc').text(response.APPRV_DRC);
-                    $('#viewCoachingModal').find('#ket_atasan').text(response.keterangan);
-                    $('#viewCoachingModal').find('#ket_hr').text(response.KETERANGAN_HR);
-                    $('#viewCoachingModal').find('#ket_hr_mng').text(response.KETERANGAN_HR_MNG);
-                    $('#viewCoachingModal').find('#ket_drc').text(response.KETERANGAN_DRC);
-                    $('#viewCoachingModal').find('#upd_atasan').text(response.UPDATE_AT_ATASAN);
-                    $('#viewCoachingModal').find('#upd_hr').text(response.UPDATE_AT_HR);
-                    $('#viewCoachingModal').find('#upd_hr_mng').text(response.UPDATE_AT_HR_MNG);
-                    $('#viewCoachingModal').find('#upd_drc').text(response.UPDATE_AT_DRC);
-    
-            $('#viewCoachingModal').modal('show');
-        },
-        error: function(error) {
-            // Tampilkan pesan kesalahan jika diperlukan
-        }
-    });
-});
+            
+                    if (response.REJECT_BY == 2) {
+                        $app1 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 2) {
+                        $app1 = '<span style="color: red;">Revisi Pengajuan</span>';
+                    }  else if (response.APPRV_ATASAN == 1) {
+                        $app1 = 'Pengajuan di Terima'
+                    } else {
+                        $app1 = null;
+                    }
+                    
+                    hideIfNullOrEmpty('aprv_atasan', $app1);
+                    if (response.REJECT_BY == 3) {
+                        $app2 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 3) {
+                        $app2 = '<span style="color: red;">Revisi Pengajuan</span>';
+                    } else if (response.APPRV_HR == 1) {
+                        $app2 = 'Pengajuan di Terima'
+                    } else {
+                        $app2 = null;
+                    }
+                    hideIfNullOrEmpty('aprv_hr', $app2);
+                    
+                    if (response.REJECT_BY == 4) {
+                        $app3 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 4) {
+                        $app3 = '<span style="color: red;">Revisi Pengajuan</span>';
+                    } else if (response.APPRV_HR_MNG == 1) {
+                        $app3 = 'Pengajuan di Terima'
+                    } else {
+                        $app3 = null;
+                    }
+                     
+                    hideIfNullOrEmpty('aprv_hr_mng', $app3);
+                    if (response.REJECT_BY == 5) {
+                        $app4 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 5) {
+                        $app4 = '<span style="color: red;">Revisi Pengajuan</span>';
+                    } else if (response.APPRV_DRC == 1) {
+                        $app4 = 'Pengajuan di Terima'
+                    } else {
+                        $app4 = null;
+                    }
+                    hideIfNullOrEmpty('aprv_drc', $app4);
+                    hideIfNullOrEmpty('ket_atasan', response.keterangan);
+                    hideIfNullOrEmpty('ket_hr', response.KETERANGAN_HR);
+                    hideIfNullOrEmpty('ket_hr_mng', response.KETERANGAN_HR_MNG);
+                    hideIfNullOrEmpty('ket_drc', response.KETERANGAN_DRC);
+                    hideIfNullOrEmpty('upd_atasan', response.UPDATE_AT_ATASAN);
+                    hideIfNullOrEmpty('upd_hr', response.UPDATE_AT_HR);
+                    hideIfNullOrEmpty('upd_hr_mng', response.UPDATE_AT_HR_MNG);
+                    hideIfNullOrEmpty('upd_drc', response.UPDATE_AT_DRC);
+
+                    $('#viewCoachingModal').modal('show');
+                },
+                error: function(error) {
+                }
+            });
+        });
     </script>
    
 

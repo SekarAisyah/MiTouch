@@ -23,7 +23,9 @@ Class PrapelatihanRepository
         return DB::table('m_prapelatihan')->insert([
             'nrp' => $data['nrp'],
             'ringkasan' => $data['ringkasan_pelatihan'],
+            'efektivitas' => $data['efektivitas_pelatihan'],
             'file_path' => $data['file_path'],
+            'created_at' => now(),
             'created_by' => auth()->user() ? auth()->user()->id : null,
             'created_name' => auth()->user() ? auth()->user()->username : null,
         ]);
@@ -37,6 +39,7 @@ Class PrapelatihanRepository
             ->update([
                 'nrp' => $data['nrp-dropdown-edit'],
                 'ringkasan' => $data['ringkasan_pelatihan_edit'],
+                'efektivitas' => $data['efektivitas_pelatihan_edit'],
                 'file_path' => $data['file_path'],
                 'created_by' => auth()->user()->id,
                 'created_name' => auth()->user()->username,
@@ -54,6 +57,7 @@ Class PrapelatihanRepository
         $data = DB::table('m_prapelatihan')
             ->join('users', 'm_prapelatihan.nrp', '=', 'users.nrp')
             ->select('m_prapelatihan.*', 'users.name as username','users.departemen as departemen', 'users.perusahaan as perusahaan') // Sesuaikan alias dengan nama yang Anda inginkan
+            ->orderBy('m_prapelatihan.created_at', 'desc')
             ->get();
 
         return $data;

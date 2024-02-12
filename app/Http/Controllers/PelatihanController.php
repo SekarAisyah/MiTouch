@@ -41,90 +41,23 @@ class PelatihanController extends Controller
         ]);
     }
 
-    // public function report(Request $request)
-    // {
-
-    //     $startDate = $request->input('start_date');
-    //     $endDate = $request->input('end_date');
-    //     $pelatihanData = $this->pelatihanRepository->getAllWithUsername();
-
-    //     return view('/report/report_pelatihan', [
-    //         'pelatihanData' => $pelatihanData,
-    //     ]);
-    // }
-
     public function report(Request $request)
     {
         $startDate = $request->input('start_date');
         $endDate = $request->input('end_date');
-
-        // Gunakan filter waktu jika ada
         $query = $this->pelatihanRepository->getAllWithDate();
         if ($startDate && $endDate) {
-            $query->whereBetween('m_pelatihan.waktu', [$startDate, $endDate]);
+            $query->whereBetween('pocket_moving_tbl_t_pelatihan.BERANGKAT_TRAINING', [$startDate, $endDate]);
         }
 
         $pelatihanData = $query->get();
 
         return view('/report/report_pelatihan', [
             'pelatihanData' => $pelatihanData,
-            'startDate' => $startDate,  // Pass start_date to the view
-            'endDate' => $endDate,      // Pass end_date to the view
+            'startDate' => $startDate,  
+            'endDate' => $endDate,   
         ]);
     }
-
-    // public function report(Request $request)
-    // {
-    //     $start_date = $request->input('start_date');
-    //     $end_date = $request->input('end_date');
-
-    //     $pelatihanData = $this->pelatihanRepository->getAllWithUsernameAndDateRange($start_date, $end_date);
-
-    //     return view('/report/report_pelatihan', [
-    //         'pelatihanData' => $pelatihanData,
-    //     ]);
-    // }
-
-    //     public function report(Request $request)
-    // {
-    //     $start_date = $request->input('start_date');
-    //     $end_date = $request->input('end_date');
-
-    //     // Validasi format tanggal jika diperlukan
-    //     $validator = Validator::make($request->all(), [
-    //         'start_date' => 'date_format:Y-m-d',
-    //         'end_date' => 'date_format:Y-m-d',
-    //     ]);
-
-    //     // Periksa apakah validasi berhasil
-    //     if ($validator->fails()) {
-    //         return redirect()->back()->withErrors($validator)->withInput();
-    //     }
-
-    //     $pelatihanData = $this->pelatihanRepository->getAllWithUsernameAndDateRange($start_date, $end_date);
-
-    //     return view('/report/report_pelatihan', [
-    //         'pelatihanData' => $pelatihanData,
-    //         'start_date' => $start_date, // Pass the start_date to the view
-    //         'end_date' => $end_date,     // Pass the end_date to the view
-    //     ]);
-    // }
-
-    // public function reportsearch(Request $request)
-    //     {
-    //         $startDate = $request->input('start_date');
-    //         $endDate = $request->input('end_date');
-
-    //         $query = DB::table('m_pelatihan');
-
-    //         if ($startDate && $endDate) {
-    //             $query->whereBetween('waktu', [$startDate, $endDate]);
-    //         }
-
-    //         $result = $query->get();
-
-    //         return response()->json($result);
-    //     }
 
     public function create(Request $request)
 
@@ -162,15 +95,16 @@ class PelatihanController extends Controller
         }
     }
 
+
     public function send(Request $request)
     {
-        $userId = auth()->user()->id;
-        $userRole = auth()->user()->id_role;
-        $sendName = auth()->user()->username;
-        $selectedPelatihanId = $request->input('pelatihan_id');
-        //dd($selectedPelatihanId);
-        $result = $this->pelatihanRepository->send($userId, $userRole, $sendName, $selectedPelatihanId);
-
+        $userId = auth()->user()->id; 
+        $userRole = auth()->user()->id_role;  
+        $keterangan = $request->input('send-link');
+        $selectedpelatihanId = $request->input('pelatihan_id');
+        //dd($selectedpelatihanId);
+        $result = $this->pelatihanRepository->send($userId, $userRole, $keterangan, $selectedpelatihanId);
+    
         return response()->json(['message' => $result]);
     }
 
@@ -248,6 +182,11 @@ class PelatihanController extends Controller
     public function exportToWord($id)
     {
         $templatePath = base_path('resources/views/pelatihan/Form Permohonan Training PT Mitrabara Adiperdana Tbk.docx');
+        
+        if (!file_exists($templatePath)) {
+            return response()->json(['error' => 'Template file not found.']);
+        }
+
         $phpWord = new TemplateProcessor($templatePath);
 
         $data = $this->pelatihanRepository->getById($id);
@@ -267,80 +206,22 @@ class PelatihanController extends Controller
         $phpWord->setValue('alasan', $data->MANFAAT_BAGI_KARYAWAN); // alasan- masih pakai mantaaf bagi karyawan (tdak ada alasan column)
         // end
 
-        $phpWord->setValue('tgl_1', date('d-m-Y', strtotime($data->UPDATE_AT_ATASAN))); // belum ada create_at
+        $phpWord->setValue('tgl_1', date('d-m-Y', strtotime($data->CREATE_AT))); 
         $phpWord->setValue('tgl_2', date('d-m-Y', strtotime($data->UPDATE_AT_ATASAN)));
         $phpWord->setValue('tgl_3', date('d-m-Y', strtotime($data->UPDATE_AT_HR)));
         $phpWord->setValue('tgl_4', date('d-m-Y', strtotime($data->UPDATE_AT_HR_MNG)));
         $phpWord->setValue('tgl_5', date('d-m-Y', strtotime($data->UPDATE_AT_DRC)));
 
-        $outputDirectory = storage_path('app/public/exports/');
+        $outputDirectory = storage_path('app/public/');
         $filename = "Form Permohonan Training PT Mitrabara Adiperdana Tbk.docx";
         $outputPath = $outputDirectory . $filename;
-
-
         $phpWord->saveAs($outputPath);
 
-        return response()->download($outputPath)->deleteFileAfterSend(true);
+        if (file_exists($outputPath)) {
+            return response()->download($outputPath)->deleteFileAfterSend(true);
+        } else {
+            return response()->json(['error' => 'Failed to generate the document.']);
+        }
     }
 
-    // public function exportToWord($id)
-    // {
-    //     // Load the Word template
-    //     $templatePath = base_path('resources/views/pelatihan/MTBU.docx');
-    //    $phpWord = new TemplateProcessor($templatePath);
-
-
-    //     // Get data from the repository
-    //     $data = $this->pelatihanRepository->getById($id);
-
-    //     // Replace placeholders in the Word template with actual data
-    //     $phpWord->setValue('name', $data->nama);
-
-    //     // Save the Word document to a temporary file
-    //     $tempWordFile = tempnam(sys_get_temp_dir(), 'export');
-    //     $phpWord->save($tempWordFile);
-
-    //     // Convert Word to PDF using PhpSpreadsheet
-    //     $spreadsheet = IOFactory::load($tempWordFile);
-    //     $pdfWriter = IOFactory::createWriter($spreadsheet, 'Tcpdf');
-    //     $pdfPath = storage_path('app/public/exports/Pelatihan.pdf');
-    //     $pdfWriter->save($pdfPath);
-
-    //     // Optionally, delete temporary files after conversion
-    //     unlink($tempWordFile);
-
-    //     // Return the PDF as response
-    //     return response()->download($pdfPath)->deleteFileAfterSend(true);
-    // }
-
-    // public function exportToWord($id)
-    // {
-    //     // Load the Word template
-    //     $templatePath = base_path('resources/views/pelatihan/pelatihan.docx');
-    //     $phpWord = new TemplateProcessor($templatePath);
-
-    //     // Get data from the repository
-    //     $data = $this->pelatihanRepository->getById($id);
-
-    //     // Replace placeholders in the Word template with actual data
-    //     $phpWord->setValue('name', $data->nama);
-
-    //     // Save the Word document to a temporary file
-    //     $tempWordFile = tempnam(sys_get_temp_dir(), 'export');
-    //     $phpWord->saveAs($tempWordFile);
-
-    //     // Convert Word to PDF using mPDF
-    //     $wordContent = file_get_contents($tempWordFile);
-    //     $phpWord = IOFactory::load($tempWordFile);
-    //     $mpdf = new 'Mpdf';
-    //     $mpdf->WriteHTML($wordContent);
-    //     $pdfPath = storage_path('app/public/exports/Pelatihan.pdf');
-    //     $mpdf->Output($pdfPath, 'F');
-
-    //     // Optionally, delete temporary files after conversion
-    //     unlink($tempWordFile);
-
-    //     // Return the PDF as response
-    //     return response()->download($pdfPath)->deleteFileAfterSend(true);
-    // }
 }

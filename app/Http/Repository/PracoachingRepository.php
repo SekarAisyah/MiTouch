@@ -23,7 +23,9 @@ Class PracoachingRepository
         return DB::table('m_pracoaching')->insert([
             'nrp' => $data['nrp'],
             'ringkasan' => $data['ringkasan_coaching'],
+            'efektivitas' => $data['efektivitas_coaching'],
             'file_path' => $data['file_path'],
+            'created_at' => now(),
             'created_by' => auth()->user() ? auth()->user()->id : null,
             'created_name' => auth()->user() ? auth()->user()->username : null,
         ]);
@@ -37,6 +39,7 @@ Class PracoachingRepository
             ->update([
                 'nrp' => $data['nrp-dropdown-edit'],
                 'ringkasan' => $data['ringkasan_coaching_edit'],
+                'efektivitas' => $data['efektivitas_coaching_edit'],
                 'file_path' => $data['file_path'],
                 'created_by' => auth()->user()->id,
                 'created_name' => auth()->user()->username,
@@ -54,6 +57,7 @@ Class PracoachingRepository
         $data = DB::table('m_pracoaching')
             ->join('users', 'm_pracoaching.nrp', '=', 'users.nrp')
             ->select('m_pracoaching.*', 'users.name as username','users.departemen as departemen', 'users.perusahaan as perusahaan') // Sesuaikan alias dengan nama yang Anda inginkan
+            ->orderBy('m_pracoaching.created_at', 'desc')
             ->get();
 
         return $data;

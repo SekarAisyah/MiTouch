@@ -43,7 +43,7 @@ class CoachingController extends Controller
 
         $query = $this->CoachingRepository->getAllWithDate();
         if ($startDate && $endDate) {
-            $query->whereBetween('m_coaching.waktu', [$startDate, $endDate]);
+            $query->whereBetween('pocket_moving_tbl_t_coaching.COACHING_DATE', [$startDate, $endDate]);
         }
 
         $coachingData = $query->get();
@@ -90,9 +90,10 @@ class CoachingController extends Controller
         $userId = auth()->user()->id;
         $userRole = auth()->user()->id_role;
         $sendName = auth()->user()->username;
+        $keterangan = $request->input('send-link');
         $selectedcoachingId = $request->input('coaching_id');
         //dd($selectedcoachingId);
-        $result = $this->CoachingRepository->send($userId, $userRole, $sendName, $selectedcoachingId);
+        $result = $this->CoachingRepository->send($userId, $userRole, $keterangan, $selectedcoachingId);
 
         return response()->json(['message' => $result]);
     }
@@ -142,20 +143,6 @@ class CoachingController extends Controller
         return response()->json($coaching);
     }
 
-    // public function getEdit($id)
-    // {
-    //     $coaching = $this->coachingRepository->getById($id);
-
-    //     // Memeriksa apakah nilai-nilai tertentu adalah null atau 0
-    //     if ($coaching->approval_by === null || $coaching->approval_by === 0) {
-    //         unset($coaching->approval_by);
-    //     }
-
-    //     // Tambahkan pemeriksaan untuk kolom lain jika diperlukan
-
-    //     return response()->json($coaching);
-    // }
-
     public function getUser()
     {
         $nrpOptions = User::select('nrp')->distinct()->get();
@@ -196,11 +183,9 @@ class CoachingController extends Controller
 
     public function exportToWord($id)
     {
-        // $id = $request->input('id');
-
         $templatePath = base_path('resources/views/coaching/Form Coaching PT Mitrabara Adiperdana Tbk.docx');
         $phpWord = new TemplateProcessor($templatePath);
-        //dd($templatePath);
+
         $data = $this->CoachingRepository->getById($id);
         $phpWord->setValue('nrp', $data->NRP);
         $phpWord->setValue('nama', $data->name);
@@ -208,6 +193,7 @@ class CoachingController extends Controller
         $phpWord->setValue('departemen', $data->departemen);
         // $phpWord->setValue('nohp', $data->phone_number);
         // $phpWord->setValue('alamat', $data->alamat);
+
         $phpWord->setValue('kompetensi', $data->KOMPETENSI_NAME);
         $phpWord->setValue('tgl_coaching', $data->COACHING_DATE);
         $phpWord->setValue('kode', $data->KOMPETENSI_CODE);
@@ -219,7 +205,7 @@ class CoachingController extends Controller
         $phpWord->setValue('tgl_4', date('d-m-Y', strtotime($data->UPDATE_AT_HR_MNG)));
         $phpWord->setValue('tgl_5', date('d-m-Y', strtotime($data->UPDATE_AT_DRC)));
 
-        $outputDirectory = storage_path('app/public/exports/');
+        $outputDirectory = storage_path('app/public/');
         $filename = "Form Coaching PT Mitrabara Adiperdana Tbk.docx";
         $outputPath = $outputDirectory . $filename;
         $phpWord->saveAs($outputPath);

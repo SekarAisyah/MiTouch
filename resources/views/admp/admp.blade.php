@@ -34,6 +34,12 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="admp-details">
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">IDENTITAS PESERTA</h6>
+                                            </div>
+                                            </div>
+                                            <hr>
                                             <div class="detail">
                                                 <label for="nrp">NRP :</label>
                                                 <span id="nrp"></span>
@@ -54,10 +60,12 @@
                                                 <label for="perusahaan">Perusahaan:</label>
                                                 <span id="perusahaan"></span>
                                             </div>
-                                            <div class="detail">
-                                                <label for="nama_admp">Nama admp:</label>
-                                                <span id="nama_admp"></span>
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">WAKTU PELAKSANAAN ADMP</h6>
                                             </div>
+                                            </div>
+                                            <hr>
                                             <div class="detail">
                                                 <label for="star_admp">Waktu Mulai admp:</label>
                                                 <span id="star_admp"></span>
@@ -66,7 +74,16 @@
                                                 <label for="finish_admp">Waktu Selesai admp:</label>
                                                 <span id="finish_admp"></span>
                                             </div>
-
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">INFORMASI ADMP</h6>
+                                            </div>
+                                            </div>
+                                            <hr>
+                                            <div class="detail">
+                                                <label for="nama_admp">Nama admp:</label>
+                                                <span id="nama_admp"></span>
+                                            </div>
                                             <div class="detail">
                                                 <label for="ja_result">Deskripsi Ja Hasil :</label>
                                                 <span id="ja_result"></span>
@@ -75,59 +92,63 @@
                                                 <label for="ja_target">Deskripsi Ja Target :</label>
                                                 <span id="ja_target"></span>
                                             </div>
-
                                             <div class="detail">
                                                 <label for="ja_short">Deskripsi Ja Short :</label>
                                                 <span id="ja_short"> </span>
                                             </div>
-                                            <div class="detail">
-                                                <label for="ket_ats">Keterangan Superintendent PD :</label>
-                                                <span id="ket_ats"> </span>
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">KETERANGAN</h6>
                                             </div>
-                                            <div class="detail">
-                                                <label for="ket_hr">Keterangan Manager :</label>
-                                                <span id="ket_hr"> </span>
                                             </div>
+                                            <hr>
                                             <div class="detail">
-                                                <label for="ket_hr_mng">Keterangan HR Manager :</label>
-                                                <span id="ket_hr_mng"> </span>
+                                                <label for="upd_ats">Update By Superintendent PD :</label>
+                                                <span id="upd_ats"> </span>
                                             </div>
-                                            <div class="detail">
-                                                <label for="ket_drc">Keterangan Direktur :</label>
-                                                <span id="ket_drc"> </span>
-                                            </div>
-
                                             <div class="detail">
                                                 <label for="aprv_ats">Approve Superintendent PD :</label>
                                                 <span id="aprv_ats"> </span>
                                             </div>
-                                            <div class="detail">
-                                                <label for="aprv_hr">Approve Manager :</label>
-                                                <span id="aprv_hr"> </span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="aprv_hr_mng">Approve HR Manager :</label>
-                                                <span id="aprv_hr_mng"> </span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="aprv_drc">Approve Direktur :</label>
-                                                <span id="aprv_drc"> </span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="upd_ats">Update By Superintendent PD :</label>
-                                                <span id="upd_ats"> </span>
+                                             <div class="detail">
+                                                <label for="ket_ats">Keterangan Superintendent PD :</label>
+                                                <span id="ket_ats"> </span>
                                             </div>
                                             <div class="detail">
                                                 <label for="upd_hr">Update By Manager :</label>
                                                 <span id="upd_hr"> </span>
                                             </div>
                                             <div class="detail">
+                                                <label for="aprv_hr">Approve Manager :</label>
+                                                <span id="aprv_hr"> </span>
+                                            </div>
+                                             <div class="detail">
+                                                <label for="ket_hr">Keterangan Manager :</label>
+                                                <span id="ket_hr"> </span>
+                                            </div>
+                                            <div class="detail">
                                                 <label for="upd_hr_mng">Update By HR Manager :</label>
                                                 <span id="upd_hr_mng"> </span>
                                             </div>
                                             <div class="detail">
+                                                <label for="aprv_hr_mng">Approve HR Manager :</label>
+                                                <span id="aprv_hr_mng"> </span>
+                                            </div>
+                                               <div class="detail">
+                                                <label for="ket_hr_mng">Keterangan HR Manager :</label>
+                                                <span id="ket_hr_mng"> </span>
+                                            </div>
+                                            <div class="detail">
                                                 <label for="upd_drc">Update By Direktur :</label>
                                                 <span id="upd_drc"> </span>
+                                            </div>
+                                            <div class="detail">
+                                                <label for="aprv_drc">Approve Direktur :</label>
+                                                <span id="aprv_drc"> </span>
+                                            </div>
+                                            <div class="detail">
+                                                <label for="ket_drc">Keterangan Direktur :</label>
+                                                <span id="ket_drc"> </span>
                                             </div>
                                         </div>
                                     </div>
@@ -146,19 +167,18 @@
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="btn-add">Add admp</h1>
+                                        <h1 class="modal-title fs-5" id="btn-add">Add ADMP</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        {{-- <input type="hidden" name="_token" value="{{{ csrf_token() }}}" /> --}}
-                                        <input type="hidden" name="id" id="id" />
-                                        <input type="hidden" name="action_flag" id="action_flag" />
-                                        <input type="hidden" name="tgl_mulai" id="tgl_mulai" />
-                                        {{-- <input type="hidden" name="last_seq" id="last_seq" value="{{{$last_seq}}}" /> --}}
-
                                         <form class="row g-3 needs-validation" method="POST" action="/admp/create">
                                             @csrf
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku-add">IDENTITAS PESERTA</h6>
+                                            </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
                                                     <select class="form-control" id="nrp-dropdown" name="nrp-dropdown">
@@ -170,7 +190,6 @@
                                                     </select>
                                                     <label for="nrp">NRP <span style="color:red">*</span></label>
                                                 </div>
-
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
@@ -180,13 +199,10 @@
 
                                                 </div>
                                             </div>
-                                            <div class="col-md-12">
-                                                <div class="form-floating">
-                                                    <input type="text" class="form-control" id="nama_admp_add"
-                                                        name="nama_admp_add" placeholder="Name">
-                                                    <label for="message-text">Nama Pelatihan ADMP</label>
-
-                                                </div>
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku-add">WAKTU PELAKSANAAN ADMP</h6>
+                                            </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
@@ -202,6 +218,19 @@
                                                         name="finish_admp" placeholder="Nama admp" required>
                                                     <label for="nama admp">Waktu Selesai ADMP<span
                                                             style="color:red">*</span></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku-add">INFORMASI ADMP</h6>
+                                            </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="nama_admp_add"
+                                                        name="nama_admp_add" placeholder="Name">
+                                                    <label for="message-text">Nama Pelatihan ADMP</label>
+
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
@@ -235,13 +264,40 @@
                         </div>
                         {{-- End Modal Add --}}
 
+                        <!--begin::Modal SEND-->
+                        <div class="modal fade modal_send" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Approve ADMP</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="modal-body">
+                                        <form class="kt-form kt-form--label-right form_send" action="{{ route('send.admp') }}"  method="POST" enctype="multipart/form-data" autocomplete="off">
+                                            @csrf
+                                            <div class="form-group">
+                                                <label for="message-text" class="form-control-label">KETERANGAN APPROVAL<span style="color:red">*</span></label>
+                                                <textarea class="form-control" id="send-link" name="send-link" rows="8"></textarea>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary" id="btn-yes-send">Kirim</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end::Modal SEND-->
                         <!--begin::Modal Revisi-->
                         <div class="modal fade modal_revisi" id="revisiModal" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Revisi admp</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Revisi ADMP</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                         </button>
@@ -274,7 +330,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Reject admp</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Reject ADMP</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                         </button>
@@ -285,7 +341,7 @@
                                             enctype="multipart/form-data" autocomplete="off">
                                             @csrf
                                             <div class="form-group">
-                                                <label for="message-text" class="form-control-label">Pesan Reject admp
+                                                <label for="message-text" class="form-control-label">Pesan Reject ADMP
                                                     <span style="color:red">*</span></label>
                                                 <textarea class="form-control" id="reject" name="reject" rows="8"></textarea>
                                             </div>
@@ -311,16 +367,15 @@
                                         <th scope="col">Nama</th>
                                         {{-- <th scope="col">Departemen</th> --}}
                                         <th scope="col">Perusahaan</th>
-                                        <th scope="col">Nama admp</th>
-                                        <th scope="col">Waktu Mulai admp</th>
+                                        <th scope="col">Nama ADMP</th>
+                                        <th scope="col">Waktu Mulai ADMP</th>
                                         {{-- <th scope="col">Informasi admp</th> --}}
-                                        <th scope="col">Waktu Selesai admp</th>
+                                        <th scope="col">Waktu Selesai ADMP</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- //sekar --}}
                                     @foreach ($admpData as $no => $admp)
                                         <tr>
                                             <td>{{ $no + 1 }}</td>
@@ -352,7 +407,7 @@
                                                 @elseif($admp->status == 7)
                                                     <span class="badge rounded-pill bg-danger text-start">Reject</span>
                                                 @elseif($admp->status == 8)
-                                                    <span class="badge rounded-pill text-bg-warning text-start">Revisi
+                                                    <span class="badge rounded-pill text-bg-warning text-start">Revisi<br>
                                                         Superintendent PD</span>
                                                 @elseif($admp->status == 9)
                                                     <span class="badge rounded-pill text-bg-warning text-start">Revisi
@@ -387,11 +442,12 @@
                                                             <li><a class="dropdown-item delete" href="#"
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa-solid fa-trash"></i>Delete</a></li>
-                                                            <li><a class="dropdown-item send-link" href="#"
+                                                            <li><a class="dropdown-item send" href="#"
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa-regular fa-paper-plane"></i> Send</a>
                                                             </li>
                                                             <li><a class="dropdown-item send-link" href="#"
+                                                                    data-bs-toggle="modal" data-bs-target="#sendModal"
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa-regular fa-square-check"></i> Approve</a>
                                                             </li>
@@ -415,6 +471,7 @@
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa fa-expand"></i>View</a></li>
                                                             <li><a class="dropdown-item send-link" href="#"
+                                                                    data-bs-toggle="modal" data-bs-target="#sendModal"
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa-regular fa-paper-plane"></i> Send</a>
                                                             </li>
@@ -446,12 +503,12 @@
                                                             <li><a class="dropdown-item delete" href="#"
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa-solid fa-trash"></i>Delete</a></li>
-                                                            <li><a class="dropdown-item send-link" href="#"
+                                                            <li><a class="dropdown-item send" href="#"
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa-regular fa-paper-plane"></i> Send</a>
                                                             </li>
                                                         </ul>
-                                                    @elseif($admp->status == 9 && auth()->user()->id_role == 1)
+                                                    @elseif($admp->status == 8 && auth()->user()->id_role == 1)
                                                         <ul class="dropdown-menu">
                                                             <li><a class="dropdown-item view" href="#"
                                                                     data-bs-toggle="modal" data-bs-target="#viewadmpModal"
@@ -466,7 +523,7 @@
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa-solid fa-trash"></i>Delete</a></li>
                                                         </ul>
-                                                    @elseif($admp->status == 10 && auth()->user()->id_role == 2)
+                                                    @elseif($admp->status == 9 && auth()->user()->id_role == 2)
                                                         <ul class="dropdown-menu">
                                                             <li><a class="dropdown-item view" href="#"
                                                                     data-bs-toggle="modal" data-bs-target="#viewadmpModal"
@@ -481,7 +538,7 @@
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa-solid fa-trash"></i>Delete</a></li>
                                                         </ul>
-                                                    @elseif($admp->status == 11 && auth()->user()->id_role == 3)
+                                                    @elseif($admp->status == 10 && auth()->user()->id_role == 3)
                                                         <ul class="dropdown-menu">
                                                             <li><a class="dropdown-item view" href="#"
                                                                     data-bs-toggle="modal" data-bs-target="#viewadmpModal"
@@ -496,37 +553,7 @@
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa-solid fa-trash"></i>Delete</a></li>
                                                         </ul>
-                                                    @elseif($admp->status == 12 && auth()->user()->id_role == 4)
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item view" href="#"
-                                                                    data-bs-toggle="modal" data-bs-target="#viewadmpModal"
-                                                                    data-id="{{ $admp->PID }}"><i
-                                                                        class="fa fa-expand"></i>View</a></li>
-                                                            <li><a class="dropdown-item edit" href="#"
-                                                                    data-bs-toggle="modal" data-bs-target="#admpModal"
-                                                                    data-id="{{ $admp->PID }}"><i
-                                                                        class="fa-regular fa-pen-to-square"></i>Edit</a>
-                                                            </li>
-                                                            <li><a class="dropdown-item delete" href="#"
-                                                                    data-id="{{ $admp->PID }}"><i
-                                                                        class="fa-solid fa-trash"></i>Delete</a></li>
-                                                        </ul>
-                                                    @elseif($admp->status == 13 && auth()->user()->id_role == 5)
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item view" href="#"
-                                                                    data-bs-toggle="modal" data-bs-target="#viewadmpModal"
-                                                                    data-id="{{ $admp->PID }}"><i
-                                                                        class="fa fa-expand"></i>View</a></li>
-                                                            <li><a class="dropdown-item edit" href="#"
-                                                                    data-bs-toggle="modal" data-bs-target="#admpModal"
-                                                                    data-id="{{ $admp->PID }}"><i
-                                                                        class="fa-regular fa-pen-to-square"></i>Edit</a>
-                                                            </li>
-                                                            <li><a class="dropdown-item delete" href="#"
-                                                                    data-id="{{ $admp->PID }}"><i
-                                                                        class="fa-solid fa-trash"></i>Delete</a></li>
-                                                        </ul>
-                                                    @elseif($admp->status == 11 && auth()->user()->id_role == 3)
+                                                    @elseif($admp->status == 11 && auth()->user()->id_role == 4)
                                                         <ul class="dropdown-menu">
                                                             <li><a class="dropdown-item view" href="#"
                                                                     data-bs-toggle="modal" data-bs-target="#viewadmpModal"
@@ -548,6 +575,7 @@
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa fa-expand"></i>View</a></li>
                                                             <li><a class="dropdown-item send-link" href="#"
+                                                                    data-bs-toggle="modal" data-bs-target="#sendModal"
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa-regular fa-square-check"></i> Approve</a>
                                                             </li>
@@ -568,6 +596,7 @@
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa fa-expand"></i>View</a></li>
                                                             <li><a class="dropdown-item send-link" href="#"
+                                                                    data-bs-toggle="modal" data-bs-target="#sendModal"
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa-regular fa-square-check"></i> Approve</a>
                                                             </li>
@@ -588,6 +617,7 @@
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa fa-expand"></i>View</a></li>
                                                             <li><a class="dropdown-item send-link" href="#"
+                                                                    data-bs-toggle="modal" data-bs-target="#sendModal"
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa-regular fa-square-check"></i> Approve</a>
                                                             </li>
@@ -608,26 +638,7 @@
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa fa-expand"></i>View</a></li>
                                                             <li><a class="dropdown-item send-link" href="#"
-                                                                    data-id="{{ $admp->PID }}"><i
-                                                                        class="fa-regular fa-square-check"></i> Approve</a>
-                                                            </li>
-                                                            <li><a class="dropdown-item revisi" href="#"
-                                                                    data-bs-toggle="modal" data-bs-target="#revisiModal"
-                                                                    data-id="{{ $admp->PID }}"><i
-                                                                        class="fa-regular fa-message"></i>Revisi</a></li>
-                                                            <li><a class="dropdown-item reject" href="#"
-                                                                    data-bs-toggle="modal" data-bs-target="#rejectModal"
-                                                                    data-id="{{ $admp->PID }}"><i
-                                                                        class="fa-regular fa-circle-xmark"></i>Reject</a>
-                                                            </li>
-                                                        </ul>
-                                                    @elseif($admp->status == 6 && auth()->user()->id_role == 6)
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item view" href="#"
-                                                                    data-bs-toggle="modal" data-bs-target="#viewadmpModal"
-                                                                    data-id="{{ $admp->PID }}"><i
-                                                                        class="fa fa-expand"></i>View</a></li>
-                                                            <li><a class="dropdown-item send-link" href="#"
+                                                                    data-bs-toggle="modal" data-bs-target="#sendModal"
                                                                     data-id="{{ $admp->PID }}"><i
                                                                         class="fa-regular fa-square-check"></i> Approve</a>
                                                             </li>
@@ -653,8 +664,10 @@
                                                         </ul>
                                                     @else
                                                         <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="#"><i
-                                                                        class="fa fa-expand"></i>View</a></li>
+                                                            <li><a class="dropdown-item view" href="#"
+                                                                    data-bs-toggle="modal" data-bs-target="#viewadmpModal"
+                                                                    data-id="{{ $admp->PID }}"><i
+                                                                    class="fa fa-expand"></i>View</a></li>
                                                     @endif
                                                 </div>
                                             </td>
@@ -680,11 +693,6 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#datatable').DataTable();
-        });
-    </script>
 
     <script>
         $(document).ready(function() {
@@ -737,6 +745,18 @@
                 type: 'GET',
                 url: '{{ url('/admp/get') }}/' + admpId,
                 success: function(response) {
+                    function hideIfNullOrEmpty(elementId, value) {
+                        var element = $('#viewadmpModal').find('#' + elementId);
+                        var detailElement = element.closest('.detail');
+
+                        if (value === null || value.trim() === '') {
+                            detailElement.hide();
+                        } else {
+                            element.html(value);
+                            detailElement.show();
+                        }
+                    }
+
                     $('#viewadmpModal').find('#nrp').text(response.NRP);
                     $('#viewadmpModal').find('#name').text(response.name);
                     $('#viewadmpModal').find('#jabatan').text(response.jabatan);
@@ -750,51 +770,65 @@
                     $('#viewadmpModal').find('#ja_result').text(response.JA_RESULT_DESCRIPTION);
                     $('#viewadmpModal').find('#ja_target').text(response.JA_TARGET_DESCRIPTION);
                     $('#viewadmpModal').find('#ja_short').text(response.JA_SHORT_DESCRIPTION);
-                    $('#viewadmpModal').find('#ket_ats').text(response.keterangan);
-                    $('#viewadmpModal').find('#ket_hr').text(response.KETERANGAN_HR);
-                    $('#viewadmpModal').find('#ket_hr_mng').text(response.KETERANGAN_HR_MNG);
-                    $('#viewadmpModal').find('#ket_drc').text(response.KETERANGAN_DRC);
-                    if (response.APPRV_ATASAN == 0) {
-                        $app1 = 'Revisi Pengajuan'
-                    } else if (response.APPRV_ATASAN == 1) {
+
+                    if (response.REJECT_BY == 2) {
+                        $app1 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 2) {
+                        $app1 = '<span style="color: red;">Revisi Pengajuan</span>';
+                    }  else if (response.APPRV_ATASAN == 1) {
                         $app1 = 'Pengajuan di Terima'
                     } else {
                         $app1 = null;
                     }
-                    $('#viewadmpModal').find('#aprv_ats').text($app1);
-                    if (response.APPRV_HR == 0) {
-                        $app2 = 'Revisi Pengajuan'
+             
+                    hideIfNullOrEmpty('aprv_ats', $app1);
+                    if (response.REJECT_BY == 3) {
+                        $app2 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 3) {
+                        $app2 = '<span style="color: red;">Revisi Pengajuan</span>';
                     } else if (response.APPRV_HR == 1) {
                         $app2 = 'Pengajuan di Terima'
                     } else {
                         $app2 = null;
                     }
-                    $('#viewadmpModal').find('#aprv_hr').text($app2);
-                    if (response.APPRV_HR_MNG == 0) {
-                        $app3 = 'Revisi Pengajuan'
+
+                    hideIfNullOrEmpty('aprv_hr', $app2);
+                     if (response.REJECT_BY == 4) {
+                        $app3 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 4) {
+                        $app3 = '<span style="color: red;">Revisi Pengajuan</span>';
                     } else if (response.APPRV_HR_MNG == 1) {
                         $app3 = 'Pengajuan di Terima'
                     } else {
                         $app3 = null;
                     }
-                    $('#viewadmpModal').find('#aprv_hr_mng').text($app3);
-                    if (response.APPRV_DRC == 0) {
-                        $app4 = 'Revisi Pengajuan'
+                    
+                    hideIfNullOrEmpty('aprv_hr_mng', $app3);
+                    if (response.REJECT_BY == 5) {
+                        $app4 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 5) {
+                        $app4 = '<span style="color: red;">Revisi Pengajuan</span>';
                     } else if (response.APPRV_DRC == 1) {
                         $app4 = 'Pengajuan di Terima'
                     } else {
                         $app4 = null;
                     }
-                    $('#viewadmpModal').find('#aprv_drc').text($app4);
-                    $('#viewadmpModal').find('#upd_ats').text(response.UPDATE_AT_ATASAN);
-                    $('#viewadmpModal').find('#upd_hr').text(response.UPDATE_AT_HR);
-                    $('#viewadmpModal').find('#upd_hr_mng').text(response.UPDATE_AT_HR_MNG);
-                    $('#viewadmpModal').find('#upd_drc').text(response.UPDATE_AT_DRC);
+
+  
+                    hideIfNullOrEmpty('aprv_drc', $app4);
+                    hideIfNullOrEmpty('ket_ats', response.keterangan);
+                    hideIfNullOrEmpty('ket_hr', response.KETERANGAN_HR);
+                    hideIfNullOrEmpty('ket_hr_mng', response.KETERANGAN_HR_MNG);
+                    hideIfNullOrEmpty('ket_drc', response.KETERANGAN_DRC);
+                    hideIfNullOrEmpty('upd_ats', response.UPDATE_AT_ATASAN);
+                    hideIfNullOrEmpty('upd_hr', response.UPDATE_AT_HR);
+                    hideIfNullOrEmpty('upd_hr_mng', response.UPDATE_AT_HR_MNG);
+                    hideIfNullOrEmpty('upd_drc', response.UPDATE_AT_DRC);
 
                     $('#viewadmpModal').modal('show');
                 },
                 error: function(error) {
-                    // Tampilkan pesan kesalahan jika diperlukan
+                    
                 }
             });
         });
@@ -825,7 +859,7 @@
                     $('#admpModal').modal('show');
                 },
                 error: function(error) {
-                    // Tampilkan pesan kesalahan jika diperlukan
+                    
                 }
             });
         });
@@ -888,71 +922,71 @@
             });
         });
 
+        //SEND FIRST
+        document.querySelectorAll('.send').forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            var admpId = this.getAttribute('data-id');
 
-        function getStatusText(kodeStatus) {
-            if (kode_status === 1) {
-                return '<span class="badge rounded-pill text-bg-primary">Create</span>';
-            } else if (kode_status === 2) {
-                return '<span class="badge rounded-pill bg-warning text-dark">Revisi</span>';
-            } else if (kode_status === 3) {
-                return '<span class="badge rounded-pill text-bg-info text-start">Need Approval HRGA Manager</span>';
-            } else {
-                return 'Unknown Status';
-            }
-        }
-
-        // Function untuk mengganti status di tabel
-        function replaceStatusInTable() {
-            var rows = document.querySelectorAll('.dt_admp tbody tr');
-            rows.forEach(function(row) {
-                var kodeStatus = row.querySelector('td:nth-child(8)')
-                    .textContent; // Ambil kode_status dari kolom ke-8
-                var statusText = getStatusText(kodeStatus); // Dapatkan teks status
-                row.querySelector('td:nth-child(8)').innerHTML =
-                    statusText; // Ganti isi kolom dengan teks status yang sesuai
+            Swal.fire({
+                title: 'Konfirmasi',
+                text: 'Yakin ingin mengirim data?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Kirim!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.post('{{ route('send.admp') }}', {
+                        admp_id: admpId
+                    })
+                    .then(function (response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Sukses!',
+                            text: response.data.message
+                        }).then(() => {
+                            location.reload();
+                        });
+                    })
+                    .catch(function (error) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal!',
+                            text: 'Terjadi kesalahan saat mengirim data.'
+                        });
+                    });
+                }
             });
-        }
-
-        // Panggil fungsi untuk mengganti status setelah tabel dimuat
-        document.addEventListener('DOMContentLoaded', function() {
-            replaceStatusInTable();
+        });
         });
 
 
         //SEND
-        document.querySelectorAll('.send-link').forEach(function(link) {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                var admpId = this.getAttribute('data-id');
-
-                Swal.fire({
-                    title: 'Konfirmasi',
-                    text: 'Yakin ingin mengirim data?',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'Ya, Kirim!',
-                    cancelButtonText: 'Batal'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        axios.post('{{ route('send.admp') }}', {
-                                admp_id: admpId
-                            })
-                            .then(function(response) {
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Sukses!',
-                                    text: response.data.message
-                                }).then(() => {
-                                    location.reload();
-                                });
-                            })
-                            .catch(function(error) {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Gagal!',
-                                    text: 'Terjadi kesalahan saat mengirim data.'
-                                });
-                            });
+        $('.send-link').click(function() {
+            var admpId = $(this).data('id'); 
+            $('#btn-yes-send').click(function() {
+            
+                var data = $('.form_send').serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route('send.admp') }}?admp_id=' + admpId, 
+                    data: data,
+                    success: function(response) {
+                        Swal.fire({
+                        icon: 'success',
+                        title: 'Sukses!',
+                        text: response.message
+                        }).then(() => {
+                            location.reload()
+                        });
+                    },
+                    error: function(error) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal!',
+                            text: 'Terjadi kesalahan saat mengirim revisi.'
+                        });
                     }
                 });
             });
@@ -1081,13 +1115,9 @@
 
         //REVISI
         $('.revisi').click(function() {
-            var admpId = $(this).data('id'); // Ambil ID admp dari atribut data-id
-
+            var admpId = $(this).data('id'); 
             $('#btn-yes-revisi').click(function() {
-                // Ambil data dari formulir, termasuk pesan revisi
                 var data = $('.form_revisi').serialize();
-
-                // Kirim data dengan permintaan AJAX
                 $.ajax({
                     type: 'POST',
                     url: '{{ route('revisi.admp') }}?admp_id=' + admpId,
@@ -1102,7 +1132,6 @@
                         });
                     },
                     error: function(error) {
-                        // Tampilkan SweetAlert kesalahan
                         Swal.fire({
                             icon: 'error',
                             title: 'Gagal!',

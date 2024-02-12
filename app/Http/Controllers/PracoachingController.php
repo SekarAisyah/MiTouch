@@ -32,99 +32,68 @@ class PracoachingController extends Controller
     }
 
     
-public function create(Request $request)
-{
-    // Validasi input, termasuk file
-    $validatedData = $request->validate([
-        'ringkasan_coaching' => 'required|string',
-        'file' => 'required|mimes:pdf,doc,docx|max:2048',
-    ]);
+    public function create(Request $request)
+    {
+        $validatedData = $request->validate([
+            'ringkasan_coaching' => 'required|string',
+            'efektivitas_coaching' => 'required|string',
+            'file' => 'required|mimes:pdf,doc,docx|max:2048',
+        ]);
 
-    // Proses upload file
-    $file = $request->file('file');
-    $path = $file->store('public');
-    $data = $validatedData;
+        $file = $request->file('file');
+        if ($file->isValid()) {
+            $fileName = uniqid() . '_' . $file->getClientOriginalName();
+            $path = 'files/' . $fileName;
+            $file->move(public_path('files'), $fileName);
 
-    $data['file_path'] = $path;
-    $data['nrp'] = $request->input('nrp-dropdown');
-    $result = $this->PracoachingRepository->create($data);
-    if ($result) {
-        return response()->json(['status' => 'success']);
-    } else {
-        return response()->json(['status' => 'error']);
+            if (!file_exists(public_path('files/' . $fileName))) {
+                return response()->json(['status' => 'error', 'message' => 'Gagal menyimpan file.']);
+            }
+
+            $data = $validatedData;
+
+            $data['file_path'] = $path;
+            $data['nrp'] = $request->input('nrp-dropdown');
+            $result = $this->PracoachingRepository->create($data);
+            if ($result) {
+                return response()->json(['status' => 'success']);
+            } else {
+                return response()->json(['status' => 'error']);
+            }
+        } else {
+            return response()->json(['status' => 'error', 'message' => 'File tidak valid.']);
+        }
     }
-}
-
-    // public function create(Request $request)
-    // {
-        
-    //     // $this->validate($request, [
-    //     //         'ringkasan' => 'required|string',   
-    //     //     ]);
-         
-    //     $data = $request->all();
-
-    //     $result = $this->PracoachingRepository->create($data);
-        
-    //     if ($result) {
-    //         return Response::json(['status' => 'success']);
-    //     } else {
-    //         return Response::json(['status' => 'error']);
-    //     }
-    // }
-
-//     public function create(Request $request)
-// {
-//     // Validasi input, termasuk file
-//     $request->validate([
-//         'ringkasan' => 'required|string',
-//         'file' => 'required|mimes:pdf,doc,docx|max:2048', // Sesuaikan dengan jenis dan batasan file yang diinginkan
-//     ]);
-
-//     // Proses upload file
-//     $file = $request->file('file');
-//     $path = $file->store('uploads');
-
-//     // Seluruh data dari permintaan
-//     $data = $request->all();
-
-//     // Tambahkan atau ganti nilai kolom file_path dengan path yang sudah diunggah
-//     $data['file_path'] = $path;
-
-//     // Memanggil repository untuk menyimpan data
-//     $result = $this->PracoachingRepository->create($data);
-
-//     // Memberikan respons berdasarkan hasil penyimpanan
-//     if ($result) {
-//         return response()->json(['status' => 'success']);
-//     } else {
-//         return response()->json(['status' => 'error']);
-//     }
-// }
-
-
-
 
     public function edit($id, Request $request)
     {
-    $data = $request->all();
-    //dd($data);
-
-    if ($request->hasFile('file_edit')) {
-        $file = $request->file('file_edit');
-        $path = $file->store('public');
-        $data['file_path'] = $path;
-    };
-    $userRole = auth()->user()->id_role; 
-    $result = $this->PracoachingRepository->edit($data, $id, $userRole);
-
-    if ($result) {
-        return response()->json(['status' => 'success']);
-    } else {
-        return response()->json(['status' => 'error']);
+        $data = $request->all();
+        if ($request->hasFile('file_edit')) {
+            $file = $request->file('file_edit');
+    
+            if ($file->isValid()) {
+                $fileName = uniqid() . '_' . $file->getClientOriginalName();
+                $path = 'files/' . $fileName;
+                $file->move(public_path('files'), $fileName);
+                if (!file_exists(public_path('files/' . $fileName))) {
+                    return response()->json(['status' => 'error', 'message' => 'Gagal menyimpan file.']);
+                }
+    
+                $data['file_path'] = $path;
+            } else {
+                return response()->json(['status' => 'error', 'message' => 'File tidak valid.']);
+            }
+        }
+        
+        $userRole = auth()->user()->id_role; 
+        $result = $this->PracoachingRepository->edit($data, $id, $userRole);
+    
+        if ($result) {
+            return response()->json(['status' => 'success']);
+        } else {
+            return response()->json(['status' => 'error']);
+        }
     }
-    }
-
 
     public function delete(Request $request)
     {

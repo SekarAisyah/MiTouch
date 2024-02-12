@@ -33,46 +33,68 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <div class="pelatihan-details">
-                                            <div class="detail">
-                                                <label for="nrp">NRP :</label>
-                                                <span id="nrp"></span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="name">Nama:</label>
-                                                <span id="name"></span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="jabatan">Jabatan:</label>
-                                                <span id="jabatan"></span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="departemen">Departemen:</label>
-                                                <span id="departemen"></span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="perusahaan">Perusahaan:</label>
-                                                <span id="perusahaan"></span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="ringkasan">Ringkasan Pelatihan: </label>
-                                                <span id="ringkasan"></span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="file">File:</label>
-                                                <span id="file"></span>
-                                            </div>
-                                            <div class="detail">
-                                                <label for="file">Created by:</label>
-                                                <span id="created"></span>
-                                            </div>
-
+                                    <div class="pelatihan-details">
+                                        <div class="col-12">
+                                        <div class="form-floating">
+                                            <h6 class="labelku">IDENTITAS PESERTA</h6>
                                         </div>
+                                        </div>
+                                        <hr>
+                                        <div class="detail">
+                                            <label for="nrp">NRP :</label>
+                                            <span id="nrp"></span>
+                                        </div>
+                                        <div class="detail">
+                                            <label for="name">Nama:</label>
+                                            <span id="name"></span>
+                                        </div>
+                                        <div class="detail">
+                                            <label for="jabatan">Jabatan:</label>
+                                            <span id="jabatan"></span>
+                                        </div>
+                                        <div class="detail">
+                                        <label for="departemen">Departemen:</label>
+                                        <span id="departemen"></span>
+                                        </div>
+                                        <div class="detail">
+                                            <label for="perusahaan">Perusahaan:</label>
+                                            <span id="perusahaan"></span>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                        <div class="form-floating">
+                                            <h6 class="labelku">HASIL PELATIHAN</h6>
+                                        </div>
+                                        </div>
+                                        <hr>
+                                        <div class="detail">
+                                            <label for="ringkasan">Ringkasan Pelatihan: </label>
+                                            <span id="ringkasan"></span>
+                                        </div>
+                                        <div class="detail">
+                                            <label for="efektivitas">Keefektivitas Pelatihan: </label>
+                                            <span id="efektivitas"></span>
+                                        </div>
+                                        <div class="detail">
+                                            <label for="file">File:</label>
+                                            <span id="file"></span>
+                                        </div>
+                                        <div class="col-12 mt-2">
+                                        <div class="form-floating">
+                                            <h6 class="labelku">KETERANGAN</h6>
+                                        </div>
+                                        </div>
+                                        <hr>
+                                        <div class="detail">
+                                            <label for="file">Created by:</label>
+                                            <span id="created"></span>
+                                        </div>
+                                        
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -89,65 +111,73 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-
                                         <input type="hidden" name="id" id="id" />
-
                                         <form class="row g-3 needs-validation" method="POST" action="/prapelatihan/create"
                                             enctype="multipart/form-data">
                                             @csrf
-                                            <div class="col-md-6">
-                                                <div class="form-floating">
-                                                    <select class="form-control" id="nrp-dropdown" name="nrp-dropdown">
-                                                        <option value="" selected>Select NRP</option>
-                                                        @foreach ($nrpOptions as $nrp)
-                                                            <option value="{{ $nrp->nrp }}">{{ $nrp->nrp }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                    <label for="nrp">NRP <span style="color:red">*</span></label>
-                                                </div>
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">Identitas Peserta</h6>
+                                            </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-floating">
-                                                    <input type="text" disabled class="form-control" id="name-add"
-                                                        name="name-add" placeholder="Name">
-                                                    <label for="message-text">Nama </label>
-                                                </div>
+                                            <div class="form-floating">
+                                                <select class="form-control" id="nrp-dropdown" name="nrp-dropdown">
+                                                    <option value="" selected>Select NRP</option>
+                                                    @foreach ($nrpOptions as $nrp)
+                                                        <option value="{{ $nrp->nrp }}">{{ $nrp->nrp }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <label for="nrp">NRP <span style="color:red">*</span></label>
+                                            </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" readonly class="form-control" id="name-add" name="name-add" placeholder="Name">
+                                                <label for="message-text">Nama </label>  
+                                            </div>
                                             </div>
                                             <div class="col-md-4">
-                                                <div class="form-floating">
-                                                    <input type="text" disabled class="form-control" id="jabatan-add"
-                                                        name="jabatan-add" placeholder="Jabatan">
-                                                    <label for="message-text">Jabatan </label>
-                                                </div>
+                                            <div class="form-floating">
+                                                <input type="text" readonly class="form-control" id="jabatan-add" name="jabatan-add" placeholder="Jabatan">
+                                                <label for="message-text">Jabatan </label>
+                                            </div>
                                             </div>
                                             <div class="col-md-4">
-                                                <div class="form-floating">
-                                                    <input type="text" disabled class="form-control"
-                                                        id="departemen-add" name="departemen-add" placeholder="Password">
-                                                    <label for="message-text">Departemen </label>
-                                                </div>
+                                            <div class="form-floating">
+                                                <input type="text" readonly class="form-control" id="departemen-add" name="departemen-add" placeholder="Password">
+                                                <label for="message-text">Departemen </label>
+                                            </div>
                                             </div>
                                             <div class="col-md-4">
-                                                <div class="form-floating">
-                                                    <input type="text" disabled class="form-control"
-                                                        id="perusahaan-add" name="perusahaan-add" placeholder="Password">
-                                                    <label for="message-text">Perusahaan</label>
-                                                </div>
+                                            <div class="form-floating">
+                                                <input type="text" readonly class="form-control" id="perusahaan-add" name="perusahaan-add" placeholder="Password">
+                                                <label for="message-text">Perusahaan</label>
+                                            </div>
+                                            </div>
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">Hasil Pelatihan</h6>
+                                            </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <div class="form-floating">
-                                                    <textarea class="form-control" placeholder="Address" id="ringkasan_pelatihan" name="ringkasan_pelatihan"
-                                                        style="height: 200px;"></textarea>
-                                                    <label for="message-text">Ringkasan hasil Pelatihan </span></label>
-                                                </div>
+                                            <div class="form-floating">
+                                                <textarea class="form-control" placeholder="Address" id="ringkasan_pelatihan" name="ringkasan_pelatihan" style="height: 200px;"></textarea>
+                                                <label for="message-text">Ringkasan hasil Pelatihan </span></label>
                                             </div>
-                                            <div class="form-group">
+                                            </div>
+                                            <div class="col-md-12">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" placeholder="Address" id="efektivitas_pelatihan" name="efektivitas_pelatihan" style="height: 200px;"></textarea>
+                                                <label for="message-text">Keefektivitas Pelatihan </span></label>
+                                            </div>
+                                            </div>
+                                        <div class="form-group">
                                                 <label for="file">Pilih File</label>
-                                                <input type="file" class="form-control" name="file" id="file"
-                                                    required>
+                                                <input type="file" class="form-control" name="file" id="file" required>
                                             </div>
-
-                                        </form>
+                                            
+                                        </form>  
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary" id="btn-yes-add">Save</button>
@@ -170,12 +200,15 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-
-
                                         <form class="row g-3 needs-validation" id="formedit"
                                             action="/prapelatihan/myedit/{id}" enctype="multipart/form-data">
                                             @csrf
                                             @method('POST')
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">Identitas Peserta</h6>
+                                            </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
                                                     <select class="form-control" id="nrp-dropdown-edit"
@@ -191,21 +224,21 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
-                                                    <input type="text" disabled class="form-control" id="name-edit"
+                                                    <input type="text" readonly class="form-control" id="name-edit"
                                                         name="name-edit" placeholder="Name">
                                                     <label for="message-text">Nama </label>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-floating">
-                                                    <input type="text" disabled class="form-control" id="jabatan-edit"
+                                                    <input type="text" readonly class="form-control" id="jabatan-edit"
                                                         name="jabatan-edit" placeholder="Jabatan">
                                                     <label for="message-text">Jabatan </label>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-floating">
-                                                    <input type="text" disabled class="form-control"
+                                                    <input type="text" readonly class="form-control"
                                                         id="departemen-edit" name="departemen-edit"
                                                         placeholder="Password">
                                                     <label for="message-text">Departemen </label>
@@ -213,11 +246,16 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-floating">
-                                                    <input type="text" disabled class="form-control"
+                                                    <input type="text" readonly class="form-control"
                                                         id="perusahaan-edit" name="perusahaan-edit"
                                                         placeholder="Password">
                                                     <label for="message-text">Perusahaan</label>
                                                 </div>
+                                            </div>
+                                             <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">Hasil Pelatihan</h6>
+                                            </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-floating">
@@ -225,6 +263,12 @@
                                                         style="height: 200px;"></textarea>
                                                     <label for="message-text">Ringkasan hasil Pelatihan </span></label>
                                                 </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" placeholder="Address" id="efektivitas_pelatihan_edit" name="efektivitas_pelatihan_edit" style="height: 200px;"></textarea>
+                                                <label for="message-text">Keefektivitas Pelatihan  </span></label>
+                                            </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="file">Pilih File</label>
@@ -315,15 +359,8 @@
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#datatable').DataTable();
-        });
-    </script>
-
+ 
     <script>
         //VIEW sekar
         var pelatihanId;
@@ -341,6 +378,7 @@
                     $('#viewPraPelatihanModal').find('#departemen').text(response.departemen);
                     $('#viewPraPelatihanModal').find('#perusahaan').text(response.perusahaan);
                     $('#viewPraPelatihanModal').find('#ringkasan').text(response.ringkasan);
+                    $('#viewPraPelatihanModal').find('#efektivitas').text(response.efektivitas);
                     $('#viewPraPelatihanModal').find('#created').text(response.created_name);
                     //$('#viewPraPelatihanModal').find('#file').text(response.file_path);
                     $('#viewPraPelatihanModal').find('#file').html('<a href="' + response.file_path +
@@ -427,6 +465,8 @@
                     $('#editprapelatihanModal').find('#perusahaan-edit').val(response.perusahaan);
                     $('#editprapelatihanModal').find('#ringkasan_pelatihan_edit').val(response
                         .ringkasan);
+                    $('#editprapelatihanModal').find('#efektivitas_pelatihan_edit').val(response
+                        .efektivitas);
                     $('#editprapelatihanModal').find('#file_edit').val(response.file_path);
 
                     $('#editprapelatihanModal').modal('show');
@@ -476,10 +516,9 @@
         $(document).ready(function() {
             $('#btn-yes-edit').click(function() {
                 var formDataEdit = new FormData(document.getElementById('formedit'));
-                formDataEdit.append('_method', 'PUT'); // Tambahkan metode PUT secara eksplisit
-
+                formDataEdit.append('_method', 'PUT'); 
                 $.ajax({
-                    type: 'POST', // Ubah menjadi POST karena method tunneling (PUT) pada umumnya dilakukan melalui POST
+                    type: 'POST', 
                     url: '{{ url('/prapelatihan/myedit') }}/' + pelatihanId,
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

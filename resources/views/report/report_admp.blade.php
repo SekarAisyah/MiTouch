@@ -19,123 +19,148 @@
             <div class="card-body">
               <h5 class="card-title"><i class="fa-solid fa-square-poll-vertical"></i>  Laporan ADMP</h5>
               
-              <!-- Modal View -->
-                <div class="modal fade modal-view" id="viewadmpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-6" id="btn-view">View admp</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="admp-details">
+            <!-- Modal View -->
+            <div class="modal fade modal-view" id="viewadmpModal" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-6" id="btn-view">View admp</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="admp-details">
+                                <div class="col-12">
+                                <div class="form-floating">
+                                    <h6 class="labelku">IDENTITAS PESERTA</h6>
+                                </div>
+                                </div>
+                                <hr>
+                                <div class="detail">
+                                    <label for="nrp">NRP :</label>
+                                    <span id="nrp"></span>
+                                </div>
+                                <div class="detail">
+                                    <label for="name">Nama:</label>
+                                    <span id="name"></span>
+                                </div>
+                                <div class="detail">
+                                    <label for="jabatan">Jabatan:</label>
+                                    <span id="jabatan"></span>
+                                </div>
+                                <div class="detail">
+                                    <label for="departemen">Departemen:</label>
+                                    <span id="departemen"></span>
+                                </div>
+                                <div class="detail">
+                                    <label for="perusahaan">Perusahaan:</label>
+                                    <span id="perusahaan"></span>
+                                </div>
+                                <div class="col-12">
+                                <div class="form-floating">
+                                    <h6 class="labelku">WAKTU PELAKSANAAN ADMP</h6>
+                                </div>
+                                </div>
+                                <hr>
+                                <div class="detail">
+                                    <label for="star_admp">Waktu Mulai admp:</label>
+                                    <span id="star_admp"></span>
+                                </div>
+                                <div class="detail">
+                                    <label for="finish_admp">Waktu Selesai admp:</label>
+                                    <span id="finish_admp"></span>
+                                </div>
+                                <div class="col-12">
+                                <div class="form-floating">
+                                    <h6 class="labelku">INFORMASI ADMP</h6>
+                                </div>
+                                </div>
+                                <hr>
+                                <div class="detail">
+                                    <label for="nama_admp">Nama admp:</label>
+                                    <span id="nama_admp"></span>
+                                </div>
+                                <div class="detail">
+                                    <label for="ja_result">Deskripsi Ja Hasil :</label>
+                                    <span id="ja_result"></span>
+                                </div>
+                                <div class="detail">
+                                    <label for="ja_target">Deskripsi Ja Target :</label>
+                                    <span id="ja_target"></span>
+                                </div>
+                                <div class="detail">
+                                    <label for="ja_short">Deskripsi Ja Short :</label>
+                                    <span id="ja_short"> </span>
+                                </div>
+                                <div class="col-12">
+                                <div class="form-floating">
+                                    <h6 class="labelku">KETERANGAN</h6>
+                                </div>
+                                </div>
+                                <hr>
+                                <div class="detail">
+                                    <label for="upd_ats">Update By Superintendent PD :</label>
+                                    <span id="upd_ats"> </span>
+                                </div>
+                                <div class="detail">
+                                    <label for="aprv_ats">Approve Superintendent PD :</label>
+                                    <span id="aprv_ats"> </span>
+                                </div>
                                     <div class="detail">
-                                        <label for="nrp">NRP :</label>
-                                        <span id="nrp"></span>
-                                    </div>
+                                    <label for="ket_ats">Keterangan Superintendent PD :</label>
+                                    <span id="ket_ats"> </span>
+                                </div>
+                                <hr>
+                                <div class="detail">
+                                    <label for="upd_hr">Update By Manager :</label>
+                                    <span id="upd_hr"> </span>
+                                </div>
+                                <div class="detail">
+                                    <label for="aprv_hr">Approve Manager :</label>
+                                    <span id="aprv_hr"> </span>
+                                </div>
                                     <div class="detail">
-                                        <label for="name">Nama:</label>
-                                        <span id="name"></span>
-                                    </div>
+                                    <label for="ket_hr">Keterangan Manager :</label>
+                                    <span id="ket_hr"> </span>
+                                </div>
+                                <hr>
+                                <div class="detail">
+                                    <label for="upd_hr_mng">Update By HR Manager :</label>
+                                    <span id="upd_hr_mng"> </span>
+                                </div>
+                                <div class="detail">
+                                    <label for="aprv_hr_mng">Approve HR Manager :</label>
+                                    <span id="aprv_hr_mng"> </span>
+                                </div>
                                     <div class="detail">
-                                        <label for="jabatan">Jabatan:</label>
-                                        <span id="jabatan"></span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="departemen">Departemen:</label>
-                                        <span id="departemen"></span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="perusahaan">Perusahaan:</label>
-                                        <span id="perusahaan"></span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="nama_admp">Nama admp:</label>
-                                        <span id="nama_admp"></span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="star_admp">Waktu Mulai admp:</label>
-                                        <span id="star_admp"></span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="finish_admp">Waktu Selesai admp:</label>
-                                        <span id="finish_admp"></span>
-                                    </div>
-                                   
-                                    <div class="detail">
-                                        <label for="ja_result">Deskripsi Ja Hasil :</label>
-                                       <span id="ja_result"></span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="ja_target">Deskripsi Ja Target :</label>
-                                        <span id="ja_target"></span>
-                                    </div>
-                                    
-                                    <div class="detail">
-                                        <label for="ja_short">Deskripsi Ja Short :</label>
-                                        <span id="ja_short"> </span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="ket_ats">Keterangan Superintendent PD :</label>
-                                        <span id="ket_ats"> </span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="ket_hr">Keterangan Manager :</label>
-                                        <span id="ket_hr"> </span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="ket_hr_mng">Keterangan HR Manager :</label>
-                                        <span id="ket_hr_mng"> </span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="ket_drc">Keterangan Direktur :</label>
-                                        <span id="ket_drc"> </span>
-                                    </div>
-                                    
-                                    <div class="detail">
-                                        <label for="aprv_ats">Approve Superintendent PD :</label>
-                                        <span id="aprv_ats"> </span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="aprv_hr">Approve Manager :</label>
-                                        <span id="aprv_hr"> </span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="aprv_hr_mng">Approve HR Manager :</label>
-                                        <span id="aprv_hr_mng"> </span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="aprv_drc">Approve Direktur :</label>
-                                        <span id="aprv_drc"> </span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="upd_ats">Update By Superintendent PD :</label>
-                                        <span id="upd_ats"> </span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="upd_hr">Update By Manager :</label>
-                                        <span id="upd_hr"> </span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="upd_hr_mng">Update By HR Manager :</label>
-                                        <span id="upd_hr_mng"> </span>
-                                    </div>
-                                    <div class="detail">
-                                        <label for="upd_drc">Update By Direktur :</label>
-                                        <span id="upd_drc"> </span>
-                                    </div>
+                                    <label for="ket_hr_mng">Keterangan HR Manager :</label>
+                                    <span id="ket_hr_mng"> </span>
+                                </div>
+                                <hr>
+                                <div class="detail">
+                                    <label for="upd_drc">Update By Direktur :</label>
+                                    <span id="upd_drc"> </span>
+                                </div>
+                                <div class="detail">
+                                    <label for="aprv_drc">Approve Direktur :</label>
+                                    <span id="aprv_drc"> </span>
+                                </div>
+                                <div class="detail">
+                                    <label for="ket_drc">Keterangan Direktur :</label>
+                                    <span id="ket_drc"> </span>
                                 </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
-                <!-- End Modal View -->
+            </div>
+            <!-- End Modal View -->
 
-            
-              
               <!-- Table with stripped rows -->
               <div class="container">
               <form id="filterForm">
@@ -158,27 +183,24 @@
                     </div>
                 </div>
                 </form>
-                  <div class = "">
+                <div class = "">
                   <div class= "col-md-3 mb-4">
                   <label for="statusFilter">Status:</label>
                   <select id="statusFilter" class="form-select">
                       <option value="">All</option>
                       <option value="Create">Create</option>
-                      <option value="Pending Atasan">Pending Superintendent PD</option>
-                      <option value="Pending HR:PD">Pending Manager</option>
-                      <option value="Pending Manager">Pending Manager</option>
-                      <option value="Pending Direksi">Pending Direksi</option>
-                      <option value="6">Pending HRGA</option>
-                       <option value=6>Pending HRGA</option>
-                      <option value="Pending HRGA">Pending HRGA</option>
-                      <option value="Revisi Atasan">Revisi Superintendent PD</option>
-                      <option value="Revisi HR:PD">Revisi Manager</option>
+                      <option value="Need Approval Superintendent PD">Need Approval Superintendent PD</option>
+                      <option value="Need Approval Manager">Need Approval Manager</option>
+                      <option value="Need Approval HR Manager">Need Approval HR Manager</option>
+                      <option value="Need Approval Direksi">Need Approval Direksi</option>
+                      <option value="Revisi Superintendent PD">Revisi Superintendent PD</option>
                       <option value="Revisi Manager">Revisi Manager</option>
+                      <option value="Revisi HR Manager">Revisi HR Manager</option>
                       <option value="Revisi Direksi">Revisi Direksi</option>
-                      <option value="Revisi HRGA">Revisi HRGA</option>
-                      <option value="Aprroved">Approved</option>
+                      <option value="Done">Done</option>
+                      <option value="Reject">Reject</option>
                   </select>
-                  </div>
+                </div>
               <table class="table dt_admp" id="datatable">
                 <thead>
                   <tr>
@@ -186,9 +208,9 @@
                     <th scope="col">NRP</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Perusahaan</th>
-                    <th scope="col">Nama admp</th>
-                    <th scope="col">Waktu Mulai admp</th>
-                    <th scope="col">Waktu Selesai admp</th>
+                    <th scope="col">Nama ADMP</th>
+                    <th scope="col">Waktu Mulai ADMP</th>
+                    <th scope="col">Waktu Selesai ADMP</th>
                     <th scope="col">Status</th>
                     <th scope="col">Aksi</th>
                   </tr>
@@ -296,51 +318,107 @@ var dataTable = $('#datatable').DataTable({
 
 $('#statusFilter').on('change', function () {
     var statusValue = $(this).val();
-    dataTable.column(9).search(statusValue).draw();
+    dataTable.column(7).search(statusValue).draw();
 });
 
 
-//VIEW sekar
-var admpId; 
-$('.view').click(function() {
-    admpId = $(this).data('id');
-     $('#viewadmpModal').attr('data-mode', 'edit');
-    
-    $.ajax({
-        type: 'GET',
-        url: '{{ url('/admp/get') }}/' + admpId,
-        success: function(response) {
-            $('#viewadmpModal').find('#nrp').text(response.NRP);
-            $('#viewadmpModal').find('#name').text(response.name);
-            $('#viewadmpModal').find('#jabatan').text(response.jabatan);
-            $('#viewadmpModal').find('#departemen').text(response.departemen);
-            $('#viewadmpModal').find('#perusahaan').text(response.perusahaan);
-            $('#viewadmpModal').find('#nama_admp').text(response.NAMA);
-            $('#viewadmpModal').find('#star_admp').text(response.ADMP_JA_START_DATE);
-            $('#viewadmpModal').find('#finish_admp').text(response.ADMP_JA_FINISH_DATE);
-            $('#viewadmpModal').find('#ja_result').text(response.JA_RESULT_DESCRIPTION);
-            $('#viewadmpModal').find('#ja_target').text(response.JA_TARGET_DESCRIPTION);
-            $('#viewadmpModal').find('#ja_short').text(response.JA_SHORT_DESCRIPTION);
-            $('#viewadmpModal').find('#ket_ats').text(response.keterangan);
-            $('#viewadmpModal').find('#ket_hr').text(response.KETERANGAN_HR);
-            $('#viewadmpModal').find('#ket_hr_mng').text(response.KETERANGAN_HR_MNG);
-            $('#viewadmpModal').find('#ket_drc').text(response.KETERANGAN_DRC);
-            $('#viewadmpModal').find('#aprv_ats').text(response.APPRV_ATASAN);
-            $('#viewadmpModal').find('#aprv_hr').text(response.APPRV_HR);
-            $('#viewadmpModal').find('#aprv_hr_mng').text(response.APPRV_HR_MNG);
-            $('#viewadmpModal').find('#aprv_drc').text(response.APPRV_DRC);
-            $('#viewadmpModal').find('#upd_ats').text(response.UPDATE_AT_ATASAN);
-            $('#viewadmpModal').find('#upd_hr').text(response.UPDATE_AT_HR);
-            $('#viewadmpModal').find('#upd_hr_mng').text(response.UPDATE_AT_HR_MNG);
-            $('#viewadmpModal').find('#upd_drc').text(response.UPDATE_AT_DRC);
-    
-            $('#viewadmpModal').modal('show');
-        },
-        error: function(error) {
-            // Tampilkan pesan kesalahan jika diperlukan
-        }
-    });
-});
+       //VIEW sekar
+        var admpId;
+        $('.view').click(function() {
+            admpId = $(this).data('id');
+            $('#viewadmpModal').attr('data-mode', 'edit');
+
+            $.ajax({
+                type: 'GET',
+                url: '{{ url('/admp/get') }}/' + admpId,
+                success: function(response) {
+                    function hideIfNullOrEmpty(elementId, value) {
+                        var element = $('#viewadmpModal').find('#' + elementId);
+                        var detailElement = element.closest('.detail');
+
+                        if (value === null || value.trim() === '') {
+                            detailElement.hide();
+                        } else {
+                            element.html(value);
+                            detailElement.show();
+                        }
+                    }
+
+                    $('#viewadmpModal').find('#nrp').text(response.NRP);
+                    $('#viewadmpModal').find('#name').text(response.name);
+                    $('#viewadmpModal').find('#jabatan').text(response.jabatan);
+                    $('#viewadmpModal').find('#departemen').text(response.departemen);
+                    $('#viewadmpModal').find('#perusahaan').text(response.perusahaan);
+                    $('#viewadmpModal').find('#nama_admp').text(response.NAMA);
+                    $date = response.ADMP_JA_START_DATE;
+                    $date2 = response.ADMP_JA_FINISH_DATE;
+                    $('#viewadmpModal').find('#star_admp').text($date.split(' ', 1));
+                    $('#viewadmpModal').find('#finish_admp').text($date2.split(' ', 1));
+                    $('#viewadmpModal').find('#ja_result').text(response.JA_RESULT_DESCRIPTION);
+                    $('#viewadmpModal').find('#ja_target').text(response.JA_TARGET_DESCRIPTION);
+                    $('#viewadmpModal').find('#ja_short').text(response.JA_SHORT_DESCRIPTION);
+
+                    if (response.REJECT_BY == 2) {
+                        $app1 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 2) {
+                        $app1 = '<span style="color: red;">Revisi Pengajuan</span>';
+                    }  else if (response.APPRV_ATASAN == 1) {
+                        $app1 = 'Pengajuan di Terima'
+                    } else {
+                        $app1 = null;
+                    }
+             
+                    hideIfNullOrEmpty('aprv_ats', $app1);
+                    if (response.REJECT_BY == 3) {
+                        $app2 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 3) {
+                        $app2 = '<span style="color: red;">Revisi Pengajuan</span>';
+                    } else if (response.APPRV_HR == 1) {
+                        $app2 = 'Pengajuan di Terima'
+                    } else {
+                        $app2 = null;
+                    }
+
+                    hideIfNullOrEmpty('aprv_hr', $app2);
+                     if (response.REJECT_BY == 4) {
+                        $app3 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 4) {
+                        $app3 = '<span style="color: red;">Revisi Pengajuan</span>';
+                    } else if (response.APPRV_HR_MNG == 1) {
+                        $app3 = 'Pengajuan di Terima'
+                    } else {
+                        $app3 = null;
+                    }
+                    
+                    hideIfNullOrEmpty('aprv_hr_mng', $app3);
+                    if (response.REJECT_BY == 5) {
+                        $app4 = '<span style="color: red;">Reject Pengajuan</span>';
+                    }  else if (response.REVISI_BY == 5) {
+                        $app4 = '<span style="color: red;">Revisi Pengajuan</span>';
+                    } else if (response.APPRV_DRC == 1) {
+                        $app4 = 'Pengajuan di Terima'
+                    } else {
+                        $app4 = null;
+                    }
+
+  
+                    hideIfNullOrEmpty('aprv_drc', $app4);
+                    hideIfNullOrEmpty('ket_ats', response.keterangan);
+                    hideIfNullOrEmpty('ket_hr', response.KETERANGAN_HR);
+                    hideIfNullOrEmpty('ket_hr_mng', response.KETERANGAN_HR_MNG);
+                    hideIfNullOrEmpty('ket_drc', response.KETERANGAN_DRC);
+                    hideIfNullOrEmpty('upd_ats', response.UPDATE_AT_ATASAN);
+                    hideIfNullOrEmpty('upd_hr', response.UPDATE_AT_HR);
+                    hideIfNullOrEmpty('upd_hr_mng', response.UPDATE_AT_HR_MNG);
+                    hideIfNullOrEmpty('upd_drc', response.UPDATE_AT_DRC);
+
+                    $('#viewadmpModal').modal('show');
+                },
+                error: function(error) {
+                    
+                }
+            });
+        });
 
 </script>
    

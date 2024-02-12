@@ -33,6 +33,7 @@ class admpRepository
             'JA_TARGET_DESCRIPTION' => $data['ja_target'],
             'JA_SHORT_DESCRIPTION' => $data['ja_short'],
             'status' => 1,
+            'CREATE_AT' => now(),
             // 'CREATE_BY' => auth()->user()->id,
             // 'CREATE_NAME' => auth()->user()->username,
 
@@ -86,6 +87,7 @@ class admpRepository
                 'JA_TARGET_DESCRIPTION' => $data['ja_target'],
                 'JA_SHORT_DESCRIPTION' => $data['ja_short'],
                 'status' => $kodeStatus,
+                'REVISI_BY' =>null
             ]);
     }
 
@@ -99,12 +101,13 @@ class admpRepository
         $data = DB::table('pocket_moving_tbl_t_admp')
             ->join('users', 'pocket_moving_tbl_t_admp.NRP', '=', 'users.nrp')
             ->select('pocket_moving_tbl_t_admp.*', 'users.name as username', 'users.departemen as departemen', 'users.perusahaan as perusahaan') // Sesuaikan alias dengan nama yang Anda inginkan
+            ->orderBy('pocket_moving_tbl_t_admp.CREATE_AT', 'desc')
             ->get();
 
         return $data;
     }
 
-    public function send($userId, $userRole, $sendName, $selectedadmpId)
+    public function send($userId, $userRole, $keterangan, $selectedadmpId)
     {
 
         $admp = DB::table('pocket_moving_tbl_t_admp')->where('PID', $selectedadmpId)->first();
@@ -127,7 +130,9 @@ class admpRepository
                 ->update([
                     'APPRV_ATASAN' => 1,
                     'UPDATE_AT_ATASAN' => now(),
-                    'status' => $newKodeStatus
+                    'status' => $newKodeStatus,
+                    'keterangan' => $keterangan,
+                    'REVISI_BY' => null
                 ]);
         } else if ($newKodeStatus == 4) {
             DB::table('pocket_moving_tbl_t_admp')
@@ -135,7 +140,9 @@ class admpRepository
                 ->update([
                     'APPRV_HR' => 1,
                     'UPDATE_AT_HR' => now(),
-                    'status' => $newKodeStatus
+                    'status' => $newKodeStatus,
+                    'KETERANGAN_HR' => $keterangan,
+                    'REVISI_BY' => null
                 ]);
         } else if ($newKodeStatus == 5) {
             DB::table('pocket_moving_tbl_t_admp')
@@ -143,7 +150,9 @@ class admpRepository
                 ->update([
                     'APPRV_HR_MNG' => 1,
                     'UPDATE_AT_HR_MNG' => now(),
-                    'status' => $newKodeStatus
+                    'status' => $newKodeStatus,
+                    'KETERANGAN_HR_MNG' => $keterangan,
+                    'REVISI_BY' => null
                 ]);
         } else if ($newKodeStatus == 6) {
             DB::table('pocket_moving_tbl_t_admp')
@@ -151,7 +160,9 @@ class admpRepository
                 ->update([
                     'APPRV_DRC' => 1,
                     'UPDATE_AT_DRC' => now(),
-                    'status' => $newKodeStatus
+                    'status' => $newKodeStatus,
+                    'KETERANGAN_DRC' => $keterangan,
+                    'REVISI_BY' => null
                 ]);
         } else if ($newKodeStatus == 7) {
             DB::table('pocket_moving_tbl_t_admp')
@@ -172,31 +183,40 @@ class admpRepository
             case 2:
                 $kodeStatus = 8;
                 $ket_atasan = $pesanRevisi;
+                $status_revisi = $userRole;
                 break;
             case 3:
                 $kodeStatus = 9;
                 $ket_hr =  $pesanRevisi;
+                $status_revisi = $userRole;
                 break;
             case 4:
                 $kodeStatus = 10;
                 $ket_hr_mng = $pesanRevisi;
+                $status_revisi = $userRole;
                 break;
             case 5:
                 $kodeStatus = 11;
                 $ket_drc = $pesanRevisi;
+                $status_revisi = $userRole;
                 break;
             default:
                 // $kodeStatus = 8;
                 if ($kodeStatus == 8) {
                     $ket_atasan = $pesanRevisi;
+                    $status_revisi = $userRole;
                 } else if ($kodeStatus == 9) {
                     $ket_hr =  $pesanRevisi;
+                    $status_revisi = $userRole;
                 } else if ($kodeStatus == 10) {
                     $ket_hr_mng = $pesanRevisi;
+                    $status_revisi = $userRole;
                 } else if ($kodeStatus == 11) {
                     $ket_drc = $pesanRevisi;
+                    $status_revisi = $userRole;
                 } else {
                     $ket_atasan = $pesanRevisi;
+                    $status_revisi = $userRole;
                 }
                 break;
         }
@@ -207,7 +227,8 @@ class admpRepository
                 ->update([
                     'status' => $kodeStatus,
                     'UPDATE_AT_ATASAN' => now(),
-                    'keterangan' => $ket_atasan
+                    'keterangan' => $ket_atasan,
+                    'REVISI_BY' => $status_revisi
                 ]);
         } else if ($kodeStatus == 9) {
             DB::table('pocket_moving_tbl_t_admp')
@@ -215,7 +236,8 @@ class admpRepository
                 ->update([
                     'KETERANGAN_HR' => $ket_hr,
                     'UPDATE_AT_HR' => now(),
-                    'status' => $kodeStatus
+                    'status' => $kodeStatus,
+                    'REVISI_BY' => $status_revisi
                 ]);
         } else if ($kodeStatus == 10) {
             DB::table('pocket_moving_tbl_t_admp')
@@ -223,7 +245,8 @@ class admpRepository
                 ->update([
                     'KETERANGAN_HR_MNG' => $ket_hr_mng,
                     'UPDATE_AT_HR_MNG' => now(),
-                    'status' => $kodeStatus
+                    'status' => $kodeStatus,
+                    'REVISI_BY' => $status_revisi
                 ]);
         } else if ($kodeStatus == 11) {
             DB::table('pocket_moving_tbl_t_admp')
@@ -231,7 +254,8 @@ class admpRepository
                 ->update([
                     'KETERANGAN_DRC' => $ket_drc,
                     'UPDATE_AT_DRC' => now(),
-                    'status' => 11,
+                    'status' => $kodeStatus,
+                    'REVISI_BY' => $status_revisi
                 ]);
         }
 
@@ -249,6 +273,9 @@ class admpRepository
                         'APPRV_ATASAN' => 0,
                         'status' => 7,
                         'keterangan' => $pesanReject,
+                        'REVISI_BY' => 0,
+                        'REJECT_BY' => 2,
+                        
                     ]);
                 break;
             case 3:
@@ -258,6 +285,8 @@ class admpRepository
                         'APPRV_HR' => 0,
                         'status' => 7,
                         'KETERANGAN_HR' => $pesanReject,
+                        'REVISI_BY' => 0,
+                        'REJECT_BY' => 3,
                     ]);
                 break;
             case 4:
@@ -267,6 +296,8 @@ class admpRepository
                         'APPRV_HR_MNG' => 0,
                         'status' => 7,
                         'KETERANGAN_HR_MNG' => $pesanReject,
+                        'REVISI_BY' => 0,
+                        'REJECT_BY' => 4,
                     ]);
                 break;
             case 5:
@@ -276,6 +307,8 @@ class admpRepository
                         'APPRV_DRC' => 0,
                         'status' => 7,
                         'KETERANGAN_DRC' => $pesanReject,
+                        'REVISI_BY' => 0,
+                        'REJECT_BY' => 5,
                     ]);
                 break;
             default:
@@ -285,6 +318,8 @@ class admpRepository
                         'APPRV_ATASAN' => 0,
                         'status' => 7,
                         'keterangan' => $pesanReject,
+                        'REVISI_BY' => 0,
+                        'REJECT_BY' => 2,
                     ]);
                 break;
         }

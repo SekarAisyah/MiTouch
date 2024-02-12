@@ -39,15 +39,15 @@ class AdmpController extends Controller
         // Gunakan filter waktu jika ada
         $query = $this->AdmpRepository->getAllWithDate();
         if ($startDate && $endDate) {
-            $query->whereBetween('m_admp.waktu', [$startDate, $endDate]);
+            $query->whereBetween('pocket_moving_tbl_t_admp.ADMP_JA_START_DATE', [$startDate, $endDate]);
         }
 
         $admpData = $query->get();
 
         return view('/report/report_admp', [
             'admpData' => $admpData,
-            'startDate' => $startDate,  // Pass start_date to the view
-            'endDate' => $endDate,      // Pass end_date to the view
+            'startDate' => $startDate,  
+            'endDate' => $endDate,    
         ]);
     }
 
@@ -83,13 +83,13 @@ class AdmpController extends Controller
 
     public function send(Request $request)
     {
-        $userId = auth()->user()->id;
-        $userRole = auth()->user()->id_role;
-        $sendName = auth()->user()->username;
+        $userId = auth()->user()->id; 
+        $userRole = auth()->user()->id_role;  
+        $keterangan = $request->input('send-link');
         $selectedadmpId = $request->input('admp_id');
         //dd($selectedadmpId);
-        $result = $this->AdmpRepository->send($userId, $userRole, $sendName, $selectedadmpId);
-
+        $result = $this->AdmpRepository->send($userId, $userRole, $keterangan, $selectedadmpId);
+    
         return response()->json(['message' => $result]);
     }
 
@@ -138,20 +138,6 @@ class AdmpController extends Controller
         return response()->json($admp);
     }
 
-    // public function getEdit($id)
-    // {
-    //     $admp = $this->AdmpRepository->getById($id);
-
-    //     // Memeriksa apakah nilai-nilai tertentu adalah null atau 0
-    //     if ($admp->approval_by === null || $admp->approval_by === 0) {
-    //         unset($admp->approval_by);
-    //     }
-
-    //     // Tambahkan pemeriksaan untuk kolom lain jika diperlukan
-
-    //     return response()->json($admp);
-    // }
-
     public function getUser()
     {
         $nrpOptions = User::select('nrp')->distinct()->get();
@@ -179,13 +165,10 @@ class AdmpController extends Controller
 
     public function exportToWord($id)
     {
-        // dd($id);
-        // $id = $request->input('id');
         $templatePath =  base_path('resources/views/admp/Form ADMP PT Mitrabara Adiperdana Tbk.docx');
         $phpWord = new TemplateProcessor($templatePath);
-        //dd($templatePath);
         $data = $this->AdmpRepository->getById($id);
-        // dd($data->name);
+        
         $phpWord->setValue('nrp', $data->NRP);
         $phpWord->setValue('nama', $data->name);
         $phpWord->setValue('jabatan', $data->jabatan);
@@ -201,48 +184,20 @@ class AdmpController extends Controller
         $phpWord->setValue('deskripsi_hasil', $data->JA_RESULT_DESCRIPTION);
         $phpWord->setValue('deskripsi_short', $data->JA_SHORT_DESCRIPTION);
 
-        $phpWord->setValue('tgl_1', date('d-m-Y', strtotime($data->UPDATE_AT_ATASAN))); // belum ada create_at
+        $phpWord->setValue('tgl_1', date('d-m-Y', strtotime($data->CREATE_AT))); // belum ada create_at
         $phpWord->setValue('tgl_2', date('d-m-Y', strtotime($data->UPDATE_AT_ATASAN)));
         $phpWord->setValue('tgl_3', date('d-m-Y', strtotime($data->UPDATE_AT_HR)));
         $phpWord->setValue('tgl_4', date('d-m-Y', strtotime($data->UPDATE_AT_HR_MNG)));
         $phpWord->setValue('tgl_5', date('d-m-Y', strtotime($data->UPDATE_AT_DRC)));
 
-        $outputDirectory = storage_path('app/public/exports/');
+        $outputDirectory = storage_path('app/public/');
         $filename = "Form ADMP PT Mitrabara Adiperdana Tbk.docx";
         $outputPath = $outputDirectory . $filename;
 
-        // ob_clean();
         $phpWord->saveAs($outputPath);
-        // exit;
-
-
         return response()->download($outputPath)->deleteFileAfterSend(true);
     }
 
 
-    // public function exportToWord(Request $request)
-    // {
-    //     $id= $request->input('admp_id');
-
-    //     $templatePath = base_path('resources/views/admp/AdmpMitraBara.docx');
-    //     $phpWord = new TemplateProcessor($templatePath);
-    //     //dd($templatePath);
-    //     $data = $this->AdmpRepository->getById($id);
-    //     $phpWord->setValue('nrp', $data->NRP);
-    //     $phpWord->setValue('nama', $data->name);
-    //     $phpWord->setValue('jabatan', $data->jabatan);
-    //     $phpWord->setValue('departemen', $data->departemen);
-    //     $phpWord->setValue('nohp', $data->phone_number);
-    //     $phpWord->setValue('alamat', $data->alamat);
-
-    //     $phpWord->setValue('nama_admp', $data->NAMA);
-    //     $phpWord->setValue('waktu_mulai', $data->ADMP_JA_START_DATE);
-    //     $phpWord->setValue('waktu_selesai', $data->ADMP_JA_FINISH_DATE);
-
-    //     $filename = "admp.docx";
-    //     $phpWord->saveAs($filename);
-
-    //     return response()->download($filename)->deleteFileAfterSend(true);
-    // }
 
 }

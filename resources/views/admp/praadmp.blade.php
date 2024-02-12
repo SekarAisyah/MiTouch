@@ -29,8 +29,14 @@
                                 <h1 class="modal-title fs-6" id="btn-view">View ADMP</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
-                                <div class="admp-details">
+                           <div class="modal-body">
+                                   <div class="admp-details">
+                                    <div class="col-12">
+                                    <div class="form-floating">
+                                        <h6 class="labelku">IDENTITAS PESERTA</h6>
+                                    </div>
+                                    </div>
+                                    <hr>
                                     <div class="detail">
                                         <label for="nrp">NRP :</label>
                                         <span id="nrp"></span>
@@ -48,17 +54,33 @@
                                         <span id="departemen"></span>
                                     </div>
                                     <div class="detail">
-                                        <label for="perusahaan">Perusahaan:</label>
-                                        <span id="perusahaan"></span>
+                                            <label for="perusahaan">Perusahaan:</label>
+                                            <span id="perusahaan"></span>
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                    <div class="form-floating">
+                                        <h6 class="labelku">HASIL admp</h6>
+                                    </div>
+                                    </div>
+                                    <hr>
+                                    <div class="detail">
+                                        <label for="ringkasan">Ringkasan admp: </label>
+                                        <span id="ringkasan"></span>
                                     </div>
                                     <div class="detail">
-                                        <label for="ringkasan">Ringkasan HASIL ADMP: </label>
-                                        <span id="ringkasan"></span>
+                                        <label for="efektivitas">Keefektivitas admp: </label>
+                                        <span id="efektivitas"></span>
                                     </div>
                                     <div class="detail">
                                         <label for="file">File:</label>
                                         <span id="file"></span>
                                     </div>
+                                    <div class="col-12 mt-2">
+                                    <div class="form-floating">
+                                        <h6 class="labelku">KETERANGAN</h6>
+                                    </div>
+                                    </div>
+                                    <hr>
                                     <div class="detail">
                                         <label for="file">Created by:</label>
                                         <span id="created"></span>
@@ -88,6 +110,11 @@
 
                         <form class="row g-3 needs-validation" method="POST" action="/praadmp/create"  enctype="multipart/form-data">
                         @csrf
+                            <div class="col-12">
+                            <div class="form-floating">
+                                 <h6 class="labelku">Identitas Peserta</h6>
+                            </div>
+                            </div>
                             <div class="col-md-6">
                             <div class="form-floating">
                                 <select class="form-control" id="nrp-dropdown" name="nrp-dropdown">
@@ -101,32 +128,43 @@
                             </div>
                             <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" disabled class="form-control" id="name-add" name="name-add" placeholder="Name">
+                                <input type="text" readonly class="form-control" id="name-add" name="name-add" placeholder="Name">
                                 <label for="message-text">Nama </label>  
                             </div>
                             </div>
                             <div class="col-md-4">
                              <div class="form-floating">
-                                <input type="text" disabled class="form-control" id="jabatan-add" name="jabatan-add" placeholder="Jabatan">
+                                <input type="text" readonly class="form-control" id="jabatan-add" name="jabatan-add" placeholder="Jabatan">
                                 <label for="message-text">Jabatan </label>
                             </div>
                             </div>
-                            <div class="col-md-4">
+                             <div class="col-md-4">
                              <div class="form-floating">
-                                <input type="text" disabled class="form-control" id="departemen-add" name="departemen-add" placeholder="Password">
+                                <input type="text" readonly class="form-control" id="departemen-add" name="departemen-add" placeholder="Password">
                                 <label for="message-text">Departemen </label>
                             </div>
                             </div>
                              <div class="col-md-4">
                              <div class="form-floating">
-                                <input type="text" disabled class="form-control" id="perusahaan-add" name="perusahaan-add" placeholder="Password">
+                                <input type="text" readonly class="form-control" id="perusahaan-add" name="perusahaan-add" placeholder="Password">
                                 <label for="message-text">Perusahaan</label>
+                            </div>
+                            </div>
+                            <div class="col-12">
+                            <div class="form-floating">
+                                 <h6 class="labelku">Hasil admp</h6>
                             </div>
                             </div>
                             <div class="col-md-12">
                             <div class="form-floating">
                                 <textarea class="form-control" placeholder="Address" id="ringkasan_admp" name="ringkasan_admp" style="height: 200px;"></textarea>
-                                <label for="message-text">Ringkasan Hasil ADMP </span></label>
+                                <label for="message-text">Ringkasan hasil admp </span></label>
+                            </div>
+                            </div>
+                            <div class="col-md-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Address" id="efektivitas_admp" name="efektivitas_admp" style="height: 200px;"></textarea>
+                                <label for="message-text">Keefektivitas admp </span></label>
                             </div>
                             </div>
                            <div class="form-group">
@@ -134,7 +172,7 @@
                                 <input type="file" class="form-control" name="file" id="file" required>
                             </div>
                              
-                         </form>             
+                         </form>               
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" id="btn-yes-add">Save</button>
@@ -154,11 +192,14 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        
-
                         <form class="row g-3 needs-validation" id="formedit" action="/praadmp/myedit/{id}"  enctype="multipart/form-data">
                         @csrf
                         @method('POST')
+                            <div class="col-12">
+                            <div class="form-floating">
+                                 <h6 class="labelku">Identitas Peserta</h6>
+                            </div>
+                            </div>
                             <div class="col-md-6">
                             <div class="form-floating">
                                 <select class="form-control" id="nrp-dropdown-edit" name="nrp-dropdown-edit">
@@ -178,26 +219,37 @@
                             </div>
                             <div class="col-md-4">
                              <div class="form-floating">
-                                <input type="text" disabled class="form-control" id="jabatan-edit" name="jabatan-edit" placeholder="Jabatan">
+                                <input type="text" readonly class="form-control" id="jabatan-edit" name="jabatan-edit" placeholder="Jabatan">
                                 <label for="message-text">Jabatan </label>
                             </div>
                             </div>
                             <div class="col-md-4">
                              <div class="form-floating">
-                                <input type="text" disabled class="form-control" id="departemen-edit" name="departemen-edit" placeholder="Password">
+                                <input type="text" readonly class="form-control" id="departemen-edit" name="departemen-edit" placeholder="Password">
                                 <label for="message-text">Departemen </label>
                             </div>
                             </div>
                              <div class="col-md-4">
                              <div class="form-floating">
-                                <input type="text" disabled class="form-control" id="perusahaan-edit" name="perusahaan-edit" placeholder="Password">
+                                <input type="text" readonly class="form-control" id="perusahaan-edit" name="perusahaan-edit" placeholder="Password">
                                 <label for="message-text">Perusahaan</label>
+                            </div>
+                            </div>
+                            <div class="col-12">
+                            <div class="form-floating">
+                                 <h6 class="labelku">Hasil ADMP</h6>
                             </div>
                             </div>
                             <div class="col-md-12">
                             <div class="form-floating">
                                 <textarea class="form-control" placeholder="Address" id="ringkasan_admp_edit" name="ringkasan_admp_edit" style="height: 200px;"></textarea>
                                 <label for="message-text">Ringkasan Hasil ADMP </span></label>
+                            </div>
+                            </div>
+                             <div class="col-md-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Address" id="efektivitas_admp_edit" name="efektivitas_admp_edit" style="height: 200px;"></textarea>
+                                <label for="message-text">Keefektivitas admp </span></label>
                             </div>
                             </div>
                            <div class="form-group">
@@ -300,6 +352,7 @@ $('.view').click(function() {
             $('#viewPraadmpModal').find('#departemen').text(response.departemen);
             $('#viewPraadmpModal').find('#perusahaan').text(response.perusahaan);
             $('#viewPraadmpModal').find('#ringkasan').text(response.ringkasan);
+            $('#viewPraadmpModal').find('#efektivitas').text(response.efektivitas);
             $('#viewPraadmpModal').find('#created').text(response.created_name);
             //$('#viewPraadmpModal').find('#file').text(response.file_path);
             $('#viewPraadmpModal').find('#file').html('<a href="' + response.file_path + '" target="_blank" class="btn bi bi-file-earmark-text-fill text-primary"></a>');
@@ -377,6 +430,7 @@ $('.edit').click(function() {
             $('#editpraadmpModal').find('#departemen-edit').val(response.departemen);
             $('#editpraadmpModal').find('#perusahaan-edit').val(response.perusahaan);
             $('#editpraadmpModal').find('#ringkasan_admp_edit').val(response.ringkasan);
+            $('#editpraadmpModal').find('#efektivitas_admp_edit').val(response.efektivitas);
             $('#editpraadmpModal').find('#file_edit').val(response.file_path);
            
             $('#editpraadmpModal').modal('show');

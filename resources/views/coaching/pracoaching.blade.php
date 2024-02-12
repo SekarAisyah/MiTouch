@@ -33,13 +33,19 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <div class="coaching-details">
+                                            <div class="coaching-details">
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">IDENTITAS PESERTA</h6>
+                                            </div>
+                                            </div>
+                                            <hr>
                                             <div class="detail">
                                                 <label for="nrp">NRP :</label>
                                                 <span id="nrp"></span>
                                             </div>
                                             <div class="detail">
-                                                <label for="name">Nama Coaching:</label>
+                                                <label for="name">Nama:</label>
                                                 <span id="name"></span>
                                             </div>
                                             <div class="detail">
@@ -51,24 +57,41 @@
                                                 <span id="departemen"></span>
                                             </div>
                                             <div class="detail">
-                                                <label for="perusahaan">Perusahaan:</label>
-                                                <span id="perusahaan"></span>
+                                            <label for="perusahaan">Perusahaan:</label>
+                                            <span id="perusahaan"></span>
+                                            </div>
+                                            <div class="col-12 mt-3">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">HASIL COACHING</h6>
+                                            </div>
+                                            </div>
+                                            <hr>
+                                            <div class="detail">
+                                                <label for="ringkasan">Ringkasan Coaching: </label>
+                                                <span id="ringkasan"></span>
                                             </div>
                                             <div class="detail">
-                                                <label for="ringkasan">Ringkasan HASIL Coaching: </label>
-                                                <span id="ringkasan"></span>
+                                                <label for="efektivitas">Keefektivitas Coaching: </label>
+                                                <span id="efektivitas"></span>
                                             </div>
                                             <div class="detail">
                                                 <label for="file">File:</label>
                                                 <span id="file"></span>
                                             </div>
+                                            <div class="col-12 mt-2">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">KETERANGAN</h6>
+                                            </div>
+                                            </div>
+                                            <hr>
                                             <div class="detail">
                                                 <label for="file">Created by:</label>
                                                 <span id="created"></span>
                                             </div>
-
+                                            
                                         </div>
                                     </div>
+                                    
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
@@ -89,65 +112,73 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-
-                                        <input type="hidden" name="id" id="id" />
-
-                                        <form class="row g-3 needs-validation" method="POST" action="/pracoaching/create"
-                                            enctype="multipart/form-data">
-                                            @csrf
-                                            <div class="col-md-6">
-                                                <div class="form-floating">
-                                                    <select class="form-control" id="nrp-dropdown" name="nrp-dropdown">
-                                                        <option value="" selected>Select NRP</option>
-                                                        @foreach ($nrpOptions as $nrp)
-                                                            <option value="{{ $nrp->nrp }}">{{ $nrp->nrp }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                    <label for="nrp">NRP <span style="color:red">*</span></label>
-                                                </div>
+                                    <form class="row g-3 needs-validation" method="POST" action="/pracoaching/create"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        
+                                        <div class="col-12">
+                                        <div class="form-floating">
+                                            <h6 class="labelku">Identitas Peserta</h6>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <select class="form-control" id="nrp-dropdown" name="nrp-dropdown">
+                                                <option value="" selected>Select NRP</option>
+                                                @foreach ($nrpOptions as $nrp)
+                                                    <option value="{{ $nrp->nrp }}">{{ $nrp->nrp }}</option>
+                                                @endforeach
+                                            </select>
+                                            <label for="nrp">NRP <span style="color:red">*</span></label>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" readonly class="form-control" id="name-add" name="name-add" placeholder="Name">
+                                            <label for="message-text">Nama </label>  
+                                        </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input type="text" readonly class="form-control" id="jabatan-add" name="jabatan-add" placeholder="Jabatan">
+                                            <label for="message-text">Jabatan </label>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input type="text" readonly class="form-control" id="departemen-add" name="departemen-add" placeholder="Password">
+                                            <label for="message-text">Departemen </label>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input type="text" readonly class="form-control"
+                                                id="perusahaan-add" name="perusahaan-add" placeholder="Password">
+                                            <label for="message-text">Perusahaan</label>
+                                        </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-floating">
-                                                    <input type="text" disabled class="form-control" id="name-add"
-                                                        name="name-add" placeholder="Name">
-                                                    <label for="message-text">Nama Coaching</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-floating">
-                                                    <input type="text" disabled class="form-control" id="jabatan-add"
-                                                        name="jabatan-add" placeholder="Jabatan">
-                                                    <label for="message-text">Jabatan </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-floating">
-                                                    <input type="text" disabled class="form-control"
-                                                        id="departemen-add" name="departemen-add" placeholder="Password">
-                                                    <label for="message-text">Departemen </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-floating">
-                                                    <input type="text" disabled class="form-control"
-                                                        id="perusahaan-add" name="perusahaan-add" placeholder="Password">
-                                                    <label for="message-text">Perusahaan</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-floating">
-                                                    <textarea class="form-control" placeholder="Address" id="ringkasan_coaching" name="ringkasan_coaching"
-                                                        style="height: 200px;"></textarea>
-                                                    <label for="message-text">Ringkasan Hasil Coaching </span></label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="file">Pilih File</label>
-                                                <input type="file" class="form-control" name="file" id="file"
-                                                    required>
-                                            </div>
-
-                                        </form>
+                                        <div class="col-12">
+                                        <div class="form-floating">
+                                            <h6 class="labelku">Hasil Coaching</h6>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" placeholder="Address" id="ringkasan_coaching" name="ringkasan_coaching" style="height: 200px;"></textarea>
+                                            <label for="message-text">Ringkasan hasil Coaching </span></label>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" placeholder="Address" id="efektivitas_coaching" name="efektivitas_coaching" style="height: 200px;"></textarea>
+                                            <label for="message-text">Keefektivitas Coaching </span></label>
+                                        </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="file">Pilih File</label>
+                                            <input type="file" class="form-control" name="file" id="file" required>
+                                        </div> 
+                                    </form> 
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary" id="btn-yes-add">Save</button>
@@ -170,12 +201,15 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-
-
                                         <form class="row g-3 needs-validation" id="formedit"
                                             action="/pracoaching/myedit/{id}" enctype="multipart/form-data">
                                             @csrf
                                             @method('POST')
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">Identitas Peserta</h6>
+                                            </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
                                                     <select class="form-control" id="nrp-dropdown-edit"
@@ -198,14 +232,14 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-floating">
-                                                    <input type="text" disabled class="form-control" id="jabatan-edit"
+                                                    <input type="text" readonly class="form-control" id="jabatan-edit"
                                                         name="jabatan-edit" placeholder="Jabatan">
                                                     <label for="message-text">Jabatan </label>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-floating">
-                                                    <input type="text" disabled class="form-control"
+                                                    <input type="text" readonly class="form-control"
                                                         id="departemen-edit" name="departemen-edit"
                                                         placeholder="Password">
                                                     <label for="message-text">Departemen </label>
@@ -213,11 +247,16 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-floating">
-                                                    <input type="text" disabled class="form-control"
+                                                    <input type="text" readonly class="form-control"
                                                         id="perusahaan-edit" name="perusahaan-edit"
                                                         placeholder="Password">
                                                     <label for="message-text">Perusahaan</label>
                                                 </div>
+                                            </div>
+                                            <div class="col-12">
+                                            <div class="form-floating">
+                                                <h6 class="labelku">Hasil Coaching</h6>
+                                            </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-floating">
@@ -225,6 +264,12 @@
                                                         style="height: 200px;"></textarea>
                                                     <label for="message-text">Ringkasan Hasil Coaching </span></label>
                                                 </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" placeholder="Address" id="efektivitas_coaching_edit" name="efektivitas_coaching_edit" style="height: 200px;"></textarea>
+                                                <label for="message-text">Keefektivitas Coaching </span></label>
+                                            </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="file">Pilih File</label>
@@ -341,6 +386,7 @@
                     $('#viewPracoachingModal').find('#departemen').text(response.departemen);
                     $('#viewPracoachingModal').find('#perusahaan').text(response.perusahaan);
                     $('#viewPracoachingModal').find('#ringkasan').text(response.ringkasan);
+                    $('#viewPracoachingModal').find('#efektivitas').text(response.efektivitas);
                     $('#viewPracoachingModal').find('#created').text(response.created_name);
                     //$('#viewPracoachingModal').find('#file').text(response.file_path);
                     $('#viewPracoachingModal').find('#file').html('<a href="' + response.file_path +
@@ -410,8 +456,6 @@
         var coachingId;
         $('.edit').click(function() {
             coachingId = $(this).data('id');
-
-
             $.ajax({
                 type: 'GET',
                 url: '{{ url('/pracoaching/get') }}/' + coachingId,
@@ -423,6 +467,7 @@
                     $('#departemen-edit').val(response.departemen);
                     $('#perusahaan-edit').val(response.perusahaan);
                     $('#editpracoachingModal').find('#ringkasan_coaching_edit').val(response.ringkasan);
+                    $('#editpracoachingModal').find('#efektivitas_coaching_edit').val(response.efektivitas);
                     $('#editpracoachingModal').find('#file_edit').val(response.file_path);
 
                     $('#editpracoachingModal').modal('show');

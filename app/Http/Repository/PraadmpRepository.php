@@ -23,7 +23,9 @@ Class PraadmpRepository
         return DB::table('m_praadmp')->insert([
             'nrp' => $data['nrp'],
             'ringkasan' => $data['ringkasan_admp'],
+            'efektivitas' => $data['efektivitas_admp'],
             'file_path' => $data['file_path'],
+            'created_at' => now(),
             'created_by' => auth()->user() ? auth()->user()->id : null,
             'created_name' => auth()->user() ? auth()->user()->username : null,
         ]);
@@ -37,6 +39,7 @@ Class PraadmpRepository
             ->update([
                 'nrp' => $data['nrp-dropdown-edit'],
                 'ringkasan' => $data['ringkasan_admp_edit'],
+                'efektivitas' => $data['efektivitas_admp_edit'],
                 'file_path' => $data['file_path'],
                 'created_by' => auth()->user()->id,
                 'created_name' => auth()->user()->username,
@@ -54,6 +57,7 @@ Class PraadmpRepository
         $data = DB::table('m_praadmp')
             ->join('users', 'm_praadmp.nrp', '=', 'users.nrp')
             ->select('m_praadmp.*', 'users.name as username','users.departemen as departemen', 'users.perusahaan as perusahaan') // Sesuaikan alias dengan nama yang Anda inginkan
+            ->orderBy('m_praadmp.created_at', 'desc')
             ->get();
 
         return $data;
